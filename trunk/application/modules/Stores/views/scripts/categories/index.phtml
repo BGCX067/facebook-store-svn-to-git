@@ -1,0 +1,110 @@
+<div class="categories_list table_list">
+    <div class="head_label">
+        <a href="#" class="head_name">
+            <span><?php echo $this->translate('HEADER_CATEGORIES_NAME')?></span>
+        </a>
+        <a href="#" class="head_action"><span><?php echo $this->translate('HEADER_ACTION')?></span></a>
+    </div>
+    <?php if(!empty ($this->categories_list)):?>
+    <div class="article_list">
+        <?php foreach ($this->categories_list as $category_0):?>
+        <div class="article">
+            <div class="article_name">
+                <?php echo $category_0['name']?>
+            </div>
+            <div class="action">
+                <?php echo $this->partial("action_list.phtml", array('action_list' => array(
+                    'products' => array('label' => HTS_Util::translate('ACTION_MANAGE_PRODUCTS'), 'url' => $this->url(array('controller' => 'products', 'action' => 'index', 'id_page' => $this->id_page, 'id_store' => $category_0['id_store'], 'id_category' => $category_0['id']))),
+                    'edit' => array('label' => HTS_Util::translate('ACTION_EDIT'), 'url' => $this->url(array('action' => 'index', 'id_category' => $category_0['id']))),
+                    'delete' => array('label' => HTS_Util::translate('ACTION_DELETE'), 'url' => $this->url(array('action' => 'delete', 'id_category' => $category_0['id'])))
+                )));?>
+            </div>
+        </div>
+            <?php if(!empty ($category_0['children'])):?>
+            <?php foreach ($category_0['children'] as $category_1):?>
+            <div class="article sub">
+                <div class="article_name">
+                    <?php echo $category_1['name']?>
+                </div>
+                <div class="action">
+                    <?php echo $this->partial("action_list.phtml", array('action_list' => array(
+                        'products' => array('label' => HTS_Util::translate('ACTION_MANAGE_PRODUCTS'), 'url' => $this->url(array('controller' => 'products', 'action' => 'index', 'id_page' => $this->id_page, 'id_store' => $category_1['id_store'], 'id_category' => $category_1['id']))),
+                        'edit' => array('label' => HTS_Util::translate('ACTION_EDIT'), 'url' => $this->url(array('action' => 'index', 'id_category' => $category_1['id']))),
+                        'delete' => array('label' => HTS_Util::translate('ACTION_DELETE'), 'url' => $this->url(array('action' => 'delete', 'id_category' => $category_1['id'])))
+                    )));?>
+                </div>
+            </div>
+                <?php if(!empty ($category_1['children'])):?>
+                <?php foreach ($category_1['children'] as $category_2):?>
+                <div class="article sub">
+                    <div class="article_name">
+                        <?php echo $category_2['name']?>
+                    </div>
+                    <div class="action">
+                        <?php echo $this->partial("action_list.phtml", array('action_list' => array(
+                            'products' => array('label' => HTS_Util::translate('ACTION_MANAGE_PRODUCTS'), 'url' => $this->url(array('controller' => 'products', 'action' => 'index', 'id_page' => $this->id_page, 'id_store' => $category_2['id_store'], 'id_category' => $category_2['id']))),
+                            'edit' => array('label' => HTS_Util::translate('ACTION_EDIT'), 'url' => $this->url(array('action' => 'index', 'id_category' => $category_2['id']))),
+                            'delete' => array('label' => HTS_Util::translate('ACTION_DELETE'), 'url' => $this->url(array('action' => 'delete', 'id_category' => $category_2['id'])))
+                        )));?>
+                    </div>
+                </div>
+                <?php endforeach;?>
+                <?php endif;?>
+            <?php endforeach;?>
+            <?php endif;?>
+        <?php endforeach;?>
+    </div>
+    <?php else:?>
+    <div class="empty_item">
+        <?php echo sprintf($this->translate('MESSAGE_THERE_IS_NO_SUB_CATEGORIES'),
+                '<a class="add_categories" href="#">' . $this->translate('MENU_CREATE_SUB_CATEGORIES') . '</a>')?>
+        <?php echo sprintf($this->translate('MESSAGE_THERE_IS_NO_SUB_CATEGORIES'),
+                '<a class="edit_category" href="#">' . $this->translate('MENU_CREATE_SUB_CATEGORIES') . '</a>')?>
+    </div>
+    <?php endif;?>
+</div>
+<div id="container_add_form" class="hidden" style="display: block">
+    <div class="form_category">
+        <h4><?php echo sprintf(HTS_Util::translate('FORM_CATEGORY_PARENT'), HTS_Util::translate('FORM_CATEGORY_ROOT'))?></h4>
+        <?php
+            $this->form_add_categories->setAction($this->url(array('action' => 'create')));
+            echo $this->form_add_categories;
+        ?>
+    </div>
+    <script type="text/javascript">
+        var element = '<dd class="row_add_more"><input type="text" name="name" value=""><button class="btn_remove" type="button">- Remove</button></dd>'
+        $(document).ready(function(){
+            $("#fb-root").click(function(e){
+                var target = $(e.target);
+                if(target.is(".btn_remove"))
+                {
+                    target.parent().remove();
+                }
+                if(target.is("#btn_add_more"))
+                {
+                    target.parent().parent().find("dl").append(element);
+                }
+            });
+        });
+    </script>
+</div>
+<div id="container_edit_form" class="hidden">
+    <div class="form_category">
+        <h4><?php echo sprintf(HTS_Util::translate('FORM_CATEGORY_PARENT'), HTS_Util::translate('FORM_EDIT_CATEGORY_TITLE'))?></h4>
+        <?php
+            $this->form_edit_category->setAction($this->url(array('action' => 'edit')));
+            echo $this->form_edit_category;
+        ?>
+    </div>
+</div>
+<script type="text/javascript">
+    var element = '<dd class="row_add_more"><input type="text" name="name" value=""><button class="btn_remove" type="button">- Remove</button></dd>'
+    $(document).ready(function(){
+        $(".add_categories").click(function(){
+            showDialog($("#container_add_form").html());
+        });
+        $(".edit_category").click(function(){
+            showDialog($("#container_edit_form").html());
+        });
+    });
+</script>

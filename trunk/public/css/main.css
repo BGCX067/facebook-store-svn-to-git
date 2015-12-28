@@ -1,0 +1,72 @@
+body,ul,li,fieldset,dl,dd,dt,p {
+	margin: 0;
+	padding: 0;
+    list-style: none;
+    border: none;
+}
+body{
+    width: 100%;
+    font-size: 12px;
+    background: url("../img/bg_body.png") repeat #f8f9ef;
+}
+*{
+    font-family: "lucida grande", tahoma, arial, verdana, sans-serif;
+}
+input[type="radio"],
+input[type="check_box"]{
+    height: 14px;
+    margin: 3px 5px 3px 0px;
+    vertical-align: sub;
+}
+input[type="text"], input[type="file"], select, textArea{
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    background-color: white;
+    border: 1px solid #CCC;
+    border-radius: 3px 3px 3px 3px;
+}
+.empty_item {
+    border: 1px solid #DADADA;
+    color: #999;
+    font-weight: bold;
+    padding: 60px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 98%;
+    margin: 8px auto;
+}
+.errors{
+    color: red;
+}
+.required:after{
+    content: "*";
+    color: red;
+    margin: 0 5px;
+}
+.hint{
+    margin: 5px 0;
+    color: #999999;
+}
+.hidden{
+    display: none;
+}
+.float_left{
+    float: left;
+}
+.float_right{
+    float: right;
+}
+.clear_both{
+    clear: both;
+}
+
+/* Some class used for all view in this project */
+.btn_order_vn{
+    display: block;
+    background: url("../img/btn_order_vn.jpg") no-repeat;
+    width: 116px;
+    height: 32px;
+    cursor: pointer;
+    text-indent: -9999px;
+}

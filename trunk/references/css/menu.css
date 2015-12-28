@@ -1,0 +1,76 @@
+body,ul,li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100%;
+	font-size: 12px;
+	font-family: "lucida grande, tahoma", arial, verdana, sans-serif;
+}
+
+.config_menu {
+	width: auto;
+	display: inline-block;
+	float: right;
+}
+
+.config_menu .menu_left {
+	float: left;
+	width: 10px;
+	height: 33px;
+	background: url("../image/bg_menu_left.png") no-repeat;
+	display: inline-block;
+}
+
+.config_menu .menu_right {
+	float: left;
+	width: 10px;
+	height: 33px;
+	background: url("../image/bg_menu_right.png") no-repeat;
+	display: inline-block;
+}
+
+.config_menu .menu_center {
+	float: left;
+	background: url("../image/bg_menu_center.png") repeat;
+}
+
+.config_menu .menu_center ul {
+	
+}
+
+.config_menu .menu_center ul li {
+	float: left;
+	width: auto;
+	display: inline-block;
+	background: url("../image/li.png") no-repeat right;
+}
+
+.config_menu .menu_center ul li.last {
+	background: none;
+}
+
+.config_menu .menu_center ul li a {
+	padding: 8px 15px;
+	display: inline-block;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+.config_menu .menu_center ul li a:HOVER,.config_menu .menu_center ul li a.btn_admin:HOVER,.config_menu .menu_center ul li a.btn_config:HOVER
+	{
+	background-color: #bb11cc;
+}
+
+.config_menu .menu_center ul li a.btn_admin {
+	background: url("../image/icon_admin.png") no-repeat left;
+	padding-left: 36px;
+}
+
+.config_menu .menu_center ul li a.btn_config {
+	background: url("../image/icon_config.png") no-repeat 6px;
+	background-size: 24px 24px;
+	padding-left: 36px;
+}

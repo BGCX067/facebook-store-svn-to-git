@@ -1,0 +1,51 @@
+<div class="shop_list">
+    <div class="head_label">
+        <a href="#" class="head_name">
+            <span><?php echo $this->translate('HEADER_SHOP_NAME')?></span>
+        </a>
+        <a href="#" class="head_contact_info">
+            <span><?php echo $this->translate('HEADER_CONTACT_INFO')?></span>
+        </a>
+        <a href="#" class="head_status has_sort">
+            <span><?php echo $this->translate('HEADER_STATUS')?></span>
+        </a>
+        <a href="#" class="head_action"><span></span></a>
+    </div>
+    <?php if(count($this->stores_list)):?>
+    <div class="article_list">
+        <?php foreach ($this->stores_list as $store):?>
+        <div class="article">
+            <div class="article_banner">
+                <a class="banner" href="<?php echo $this->url(array('action' => 'detail', 'id_page' => $this->id_page))?>">
+                    <img alt="Shop banner" src="<?php echo UPLOAD_URL . '/' . $store->banner?>"/>
+                </a>
+                <a class="name" href="<?php echo $this->url(array('action' => 'detail', 'id_page' => $this->id_page))?>">
+                    <?php echo $store->name?>
+                </a>
+            </div>
+            <div class="contact_info">
+                <p class="owner"><?php echo sprintf($this->translate('INFO_SHOP_OWNER'), $store->owner);?></p>
+                <p class="phone_number"><?php echo sprintf($this->translate('INFO_SHOP_PHONE_NUMBER'), $store->phone_number);?></p>
+                <p class="email"><?php echo sprintf($this->translate('INFO_SHOP_EMAIL'), $store->email);?></p>
+            </div>
+            <div class="status">
+                <p><?php echo $store->status;?></p>
+            </div>
+            <div class="action">
+                <?php echo $this->partial("action_list.phtml", array('action_list' => array(
+                    'categories' => array('label' => HTS_Util::translate('ACTION_MANAGE_CATEGORIES'), 'url' => $this->url(array('controller' => 'categories', 'action' => 'index', 'id' => $store->id))),
+                    'products' => array('label' => HTS_Util::translate('ACTION_MANAGE_PRODUCTS'), 'url' => $this->url(array('controller' => 'produts', 'action' => 'index', 'id' => $store->id))),
+                    'edit' => array('label' => HTS_Util::translate('ACTION_EDIT'), 'url' => $this->url(array('action' => 'edit', 'id' => $store->id))),
+                    'delete' => array('label' => HTS_Util::translate('ACTION_DELETE'), 'url' => $this->url(array('action' => 'delete', 'id' => $store->id)))
+                )));?>
+            </div>
+        </div>
+        <?php endforeach;?>
+    </div>
+    <?php else:?>
+    <div class="empty_item">
+        <?php echo sprintf($this->translate('MESSAGE_THERE_IS_NO_STORE'), 
+                '<a href="' . $this->url(array('action' => 'create')) . '">' . $this->translate('MENU_CREATE_A_NEW_STORE') . '</a>')?>
+    </div>
+    <?php endif;?>
+</div>

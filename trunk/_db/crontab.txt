@@ -1,0 +1,1 @@
+*/15 * * * * root /usr/bin/php /home/ynmedia/rss/public/script/autopost.php

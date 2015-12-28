@@ -1,0 +1,68 @@
+<?php echo $this->doctype(); ?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+        <title><?php echo $this->translate('APP_NAME'); ?></title>
+        <?php
+        $this->social->render("searchEngineOptimizes", array(
+            'description' => $this->translate('APP_DESC'),
+            'keywords' => "keywords",
+            'author' => "HT Stores World",
+        ));
+        ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/main.css'; ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/canvas_header.css'; ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/canvas_body.css'; ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/main_menu.css'; ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/config_menu.css'; ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/vertical_menu.css'; ?>" />
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+        <script type="text/javascript" src="<?php echo STATIC_URL . '/js/main.js'; ?>"></script>
+        <script type="text/javascript" src="<?php echo STATIC_URL . '/js/stores.js'; ?>"></script>
+        
+        <?php echo $this->social->render('initHead'); ?>
+        <?php echo $this->headMeta(); ?>
+    </head>
+    <body class="canvas">
+        <?php echo $this->social->render('initBody'); ?>
+        <div class="header_container">
+            <?php echo $this->partial("header/hts_header.phtml", array('social' => $this->social));?>
+        </div>
+        <div class="body_container">
+            <?php echo $this->partial('menu/main_menu.phtml', array('social' => $this->social, 'nav' => $this->navigation()));?>
+            <div class="contents">
+                <div class="left_col">
+                    <?php 
+                        if($this->extra_values['params']['controller'] == "stores")
+                        {
+                            echo $this->partial('controll/manage_accounts.phtml', array('extra_values' => $this->extra_values));
+                        }
+                        if($this->extra_values['params']['controller'] == "categories")
+                        {
+                            echo $this->partial('controll/manage_categories.phtml', array('extra_values' => $this->extra_values));
+                        }
+                        if($this->extra_values['params']['controller'] == "products")
+                        {
+                            echo $this->partial('controll/manage_categories.phtml', array('extra_values' => $this->extra_values));
+                        }
+                    ?>
+                </div>
+                <div class="right_col">
+                    <?php echo $this->layout()->content ?>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="count_views">
+                <?php echo $this->partial('controll/google_analytics.phtml');?>
+            </div>
+            <div class="powered_by">
+                <img alt="<?php echo $this->translate('POWERED_BY');?>" src="<?php echo IMG_URL . '/power_by.png'?>"/>
+            </div>
+            <div class="clear_both"></div>
+        </div>
+        
+        <?php echo $this->social->render('endBody'); ?>
+    </body>
+</html>

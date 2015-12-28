@@ -1,0 +1,50 @@
+<?php if ($this->pageCount > 1): ?>
+<table class="hts_pagination" align="center">
+	<tr>
+		<td class="hts_pagination_tdpages">
+			<div class="hts_pagination_pages"> Page <?php echo $this->current?> of <?php echo $this->last?> </div>
+		</td>
+		<td>
+			<ul class="hts_pagination_control">
+			<?php if (isset($this->previous)): ?>
+			  	<li>
+					  <a target="_top" href="<?php echo $this->current_link . '/page/' . $this->previous ?>">
+					    &laquo; Previous
+					  </a>
+			  	</li>
+			<?php else: ?>
+	  			<li class="disabled">
+	  				<a>&laquo; Previous</a>
+				</li>
+			<?php endif; ?>
+			
+			<?php foreach ($this->pagesInRange as $page): ?>
+				<?php if ($page != $this->current): ?>
+				    <li>
+					    <a target="_top" href="<?php echo $this->current_link . '/page/' . $page ?>">
+					        <?php echo $page; ?>
+					    </a>
+				    </li>
+				<?php else: ?>
+					<li class="selected">
+						<a><?php echo $page; ?></a>
+					</li>
+				<?php endif; ?>
+			<?php endforeach; ?>
+	 
+			<?php if (isset($this->next)): ?>
+				  <li>
+					  <a target="_top" href="<?php echo $this->current_link . '/page/' . $this->next ?>">
+					    Next &raquo;
+					  </a>
+				  </li>
+			<?php else: ?>
+				<li class="disabled">
+	  				<a>Next &raquo;</a>
+	  			</li>
+	  		</ul>
+	  	</td>
+	<?php endif; ?>
+	</tr>
+</table>
+<?php endif; ?>

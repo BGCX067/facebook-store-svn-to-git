@@ -1,0 +1,9 @@
+<?php 
+    $size       = ($this->size)? $this->size: 'normal';
+    $url      = ($this->url)? $this->url: "#";
+?>
+<a class="fb_share <?php echo (($this->size)? $this->size: 'normal'); ?>" 
+   href="javascript:void(0)" 
+   onclick="fbShare('<?php echo $url?>',social_user_id)">
+	<?php echo $this->translate('FB_SHARE') ?>
+</a>

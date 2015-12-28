@@ -1,0 +1,17 @@
+.rating_control{
+    display: inline-block;
+}
+.rating_control > a{
+    background: url(http://davidwalsh.name/wp-content/themes/epic/js/ratings/Graphics/star_boxed_full.png) no-repeat; 
+    display: inline-block; 
+    width: 8px;
+    height: 16px; 
+    cursor: pointer; 
+    float: left; 
+}
+.rating_control a.half-left{
+    background-position: 0px 0px;
+}
+.rating_control a.half-right{
+    background-position: -8px 0px;
+}

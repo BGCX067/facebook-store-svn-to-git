@@ -1,0 +1,29 @@
+[production]
+social.name = "Facebook"
+social.facebook.id = "258374894246276"
+social.facebook.secret = "ca8baace3022ed6a0991c5fc28811554"
+social.facebook.url = "http://apps.facebook.com/hoang-rss-timeline"
+social.facebook.profileUrl = "http://www.facebook.com/apps/application.php?id=258374894246276"
+social.facebook.oauthScope = ""
+social.facebook.tester = "100002612832522"
+;social.facebook.proxy.host = "173.212.202.170"
+;social.facebook.proxy.port = "3128"
+social.facebook.debug = false
+social.facebook.localScript = true
+
+; YouNet Client Are Integration
+social.facebook.product.url = "http://media.younetco.com/wp-content/plugins/younet-client-area-plugin/client-area-interface.php"
+social.facebook.product.namespace = "uri:clientarea"
+social.facebook.product.username = "younetsoap"
+social.facebook.product.password = "YNPass@Soap"
+social.facebook.product.id = "2"
+social.facebook.product.enabled = true
+social.facebook.product.debug = false
+
+[staging : production]
+social.facebook.product.enabled = false
+social.facebook.product.debug = false
+
+[testing : staging]
+
+[development : testing]

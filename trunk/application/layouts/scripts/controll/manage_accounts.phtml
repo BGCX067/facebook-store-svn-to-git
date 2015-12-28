@@ -1,0 +1,41 @@
+<?php
+    $user           = !empty ($this->extra_values['user'])?$this->extra_values['user']:null;
+    $page_list      = !empty ($this->extra_values['page_list'])?$this->extra_values['page_list']:array();
+    $id_page_active = !empty ($this->extra_values['id_page'])?$this->extra_values['id_page']:null;
+?>
+<div class="manage_accounts">
+    <div class="bodyMenu">
+        <h4><?php echo $this->translate('CONTROL_USER_PROFILE');?></h4>
+        <div class="toplevelnav">
+            <ul>
+                <?php if(!empty ($user)):?>
+                <li class="<?php if($id_page_active == null) echo "active";?>">
+                    <a class="aWrap" href="<?php echo $this->url(array('id_page' => null));?>">
+                        <span class="navSectionTitle"><?php echo $user->name?></span>
+                    </a>
+                </li>
+                <?php endif;?>
+            </ul>
+        </div>
+    </div>
+    <div class="bodyMenu">
+        <h4><?php echo $this->translate('CONTROL_MANAGE_FAN_PAGES');?></h4>
+        <?php if(count($page_list)):?>
+        <div class="toplevelnav">
+            <ul>
+                <?php foreach ($page_list as $page_id => $page_name):?>
+                <li class="<?php if($page_id == $id_page_active) echo "active";?>">
+                    <a class="aWrap" href="<?php echo $this->url(array('id_page' => $page_id));?>">
+                        <span class="navSectionTitle"><?php echo $page_name?></span>
+                    </a>
+                </li>
+                <?php endforeach;?>
+            </ul>
+        </div>
+        <?php else:?>
+        <div class="empty_item">
+            <?php echo '<a href="' . HTS_Util::getCreatePageUrl() . '">' . $this->translate('MENU_CREATE_A_NEW_STORE') . '</a>';?>
+        </div>
+        <?php endif;?>
+    </div>
+</div>

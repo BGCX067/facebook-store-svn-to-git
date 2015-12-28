@@ -1,0 +1,395 @@
+<?php
+if(!empty($this->feeds))
+{
+	if (count($this->rss_list) > 1)
+	{
+		?>
+
+		<?php if (sizeof($this->rss_list) > 1):?>
+<div id="view_by" class="view_by">
+<div class="order_type" id="order_type"><label><?php echo $this->translate('VIEW_BY')?></label>
+<select id="select_order_type">
+	<option value="latest"><?php echo $this->translate('LATEST_NEWS')?></option>
+	<option value="sources"><?php echo $this->translate('SOURCES')?></option>
+</select></div>
+<div class="detail_source" id="detail_source"><select
+	id="select_detail_source">
+	<option value="all"><?php echo $this->translate('ALL_SOURCES')?></option>
+	<?php foreach ($this->rss_list as $rss) {?>
+	<option value="<?php echo $rss['id']?>"><?php echo $this->escape($rss['title'])?></option>
+	<?php }?>
+</select></div>
+</div>
+	<?php endif;?>
+	<?php
+	}
+	?>
+
+<script type="text/javascript">
+	function Entry() {
+		this.key = "";
+		this.time = 0;
+	}
+
+	function Source(){
+		this.name = "";
+		this.entries = new Array();
+	}
+
+	var sourceList = new Array();
+	var latestList = new Array();
+	var entry;
+</script>
+
+<div id="feeds_news_latest">
+<div class="content_title"><?php echo $this->translate('LATEST_NEWS')?>
+</div>
+<div id="all_news" class="feed_news"></div>
+</div>
+
+<div id="feeds_news_sources"><?php
+foreach ($this->feeds as $feed_key => $feed) {
+	if (is_array($feed['entries'])):
+
+	$feed_link = trim($feed['link']);
+	$feed_title = $feed['title'];
+	?>
+<div class="content_title" id="feed_<?php echo $feed_key?>"><?php echo $this->escape($feed['title'])?>
+<div class="slide" id="slide_<?php echo $feed_key?>"><a class="slide_up"
+	rel="<?php echo $feed_key?>">[ - ]</a></div>
+</div>
+<script type="text/javascript">
+			var feed = new Source();
+			var entries = new Array();
+			feed.name = "<?php echo "feed_news_" . $feed_key?>";
+		</script>
+<div class="feed_news" id="feed_news_<?php echo $feed_key?>"><?php
+foreach ($feed['entries'] as $entry_key => $entry) {
+	//Zend_Debug::dump($entry->getObject());
+	$title = $entry['title'];
+	$dateModified = $entry['dateModified'];
+	$description = $entry['description'];
+	$link = trim($entry['link']);
+	$commentLink = trim($entry['commentLink']);
+
+	//TODO need a generic solution
+	if (!empty($commentLink))
+	{
+		$index = strpos($commentLink,"#");
+		$commentLink = substr ( $commentLink  , 0 , $index );
+	}
+	?>
+<div id="news_sources_<?php echo $feed_key . '_' . $entry_key?>">
+<div class="feed_title"><a target="_blank"
+	href="<?php echo trim($link);?>"> <?php echo $this->escape($title);?> </a>
+</div>
+<div class="feed_authors"><?php echo "Posted on " . $dateModified?>
+&nbsp;&#183;&nbsp;by&nbsp; <a target="_blank"
+	href="<?php echo $this->escape($feed_link)?>"><?php echo $this->escape($feed_title)?></a>
+</div>
+<div class="feed_description"><?php echo $description?></div>
+
+<div class='social_share'><?php
+$shareLink = $link;
+if (!empty($commentLink))
+$shareLink = $commentLink;
+
+echo $this->social->render('shareUrl', array(
+						'url' => $shareLink,
+                        'layout' => 'full'
+                        ));?> <?php
+                        if ($feed['is_allow_comment'] == 1):
+                        ?> <a title="show/hide comments"
+	id="btn_comment_button_<?php echo $feed_key . '_' . $entry_key?>"
+	class="button_comment right"></a> <a title="show/hide comments"
+	id="btn_comment_hidden_<?php echo $feed_key . '_' . $entry_key?>"
+	class="button_comment right"></a> <?php
+	endif;
+	?></div>
+<div id="box_comment_<?php echo $feed_key . '_' . $entry_key?>"></div>
+<div class="break_line"></div>
+<script type="text/javascript">
+						<?php
+							if ($feed['is_allow_comment'] == 1):
+						?>
+							buttonComment ("<?php echo $feed_key . '_' . $entry_key?>", "<?php if (!empty($commentLink)) echo $commentLink; else echo $link;?>");
+							$("#btn_comment_hidden_<?php echo $feed_key . '_' . $entry_key?>").addClass("hidden");
+
+							$("#btn_comment_button_<?php echo $feed_key . '_' . $entry_key?>").click(function(e){
+								e.stopImmediatePropagation();
+                                addCommentTimeLine("<?php echo $feed_key . '_' . $entry_key?>", "<?php if (!empty($commentLink)) echo $commentLink; else echo $link;?>");
+                            });
+		
+							$("#btn_comment_hidden_<?php echo $feed_key . '_' . $entry_key?>").click(function(e){
+								e.stopImmediatePropagation();
+								hiddenComment("<?php echo $feed_key . '_' . $entry_key?>", "<?php if (!empty($commentLink)) echo $commentLink; else echo $link;?>");
+							});
+						<?php
+							endif;
+						?>
+						$("#btn_post_<?php echo $feed_key . '_' . $entry_key?>").click(function(e){
+							e.stopImmediatePropagation();
+							var message = {
+									actor_id: '<?php echo $this->id_page?>',
+								    method: 'feed',
+								    link: '<?php echo HTS_Util::escapeForJs($link)?>'
+							};
+							postToFanpageWall(message);
+						});
+				</script></div>
+<script type="text/javascript">
+				entry = new Entry();
+				entry.key = "<?php echo $feed_key . '_' . $entry_key;?>";
+				<?php $time = $dateModified;
+				if (!empty($time)):?>
+					entry.time = <?php echo intval($time->toValue());?>;
+				<?php endif;?>
+				latestList.push(entry);
+				entries.push(entry);
+			</script> <?php
+}
+?></div>
+<script type="text/javascript">
+			feed.entries = entries;
+			sourceList.push(feed);
+		</script> <?php 
+		else:
+		?>
+<div class="content_title" id="feed_<?php echo $feed_key?>"><?php echo $this->escape($feed['title'])?>
+<div class="slide" id="slide_<?php echo $feed_key?>"><a class="slide_up"
+	rel="<?php echo $feed_key?>">[ - ]</a></div>
+</div>
+<div class="feed_news" id="feed_news_<?php echo $feed_key?>">
+<div class="error_panel"><?php echo $feed['entries']?></div>
+</div>
+		<?php
+		endif;
+}
+?></div>
+
+<script type="text/javascript">
+	var id_page = "<?php echo $this->id_page?>";
+    var num_rss = "<?php echo count($this->rss_list)?>";
+</script>
+
+<script>
+	function sortEntry(a, b) {
+		return b.time - a.time;
+	}
+
+	latestList.sort(sortEntry);
+
+	function viewByLatestNews()
+	{
+		for (var i = 0; i < latestList.length; i++) {
+			var feed = latestList[i];
+			$("#all_news").append($("#news_sources_" + feed.key).append() );
+		}
+	}
+
+	function viewBySources()
+	{
+		for (var i = 0; i < sourceList.length; i++) {
+			var link = sourceList[i];
+			var entries = sourceList[i].entries;
+			for (var j = 0; j < entries.length; j++)
+			{
+				var entry = entries[j];
+				$("#" + link.name).append($("#news_sources_" + entry.key).append());
+			}
+
+		}
+	}
+
+	jQuery.cookie = function (key, value, options) {
+
+	    // key and at least value given, set cookie...
+	    if (arguments.length > 1 && String(value) !== "[object Object]") {
+	        options = jQuery.extend({}, options);
+
+	        if (value === null || value === undefined) {
+	            options.expires = -1;
+	        }
+
+	        if (typeof options.expires === 'number') {
+	            var days = options.expires, t = options.expires = new Date();
+	            t.setDate(t.getDate() + days);
+	        }
+
+	        value = String(value);
+
+	        return (document.cookie = [
+	            encodeURIComponent(key), '=',
+	            options.raw ? value : encodeURIComponent(value),
+	            options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+	            options.path ? '; path=' + options.path : '',
+	            options.domain ? '; domain=' + options.domain : '',
+	            options.secure ? '; secure' : ''
+	        ].join(''));
+	    }
+
+	    // key and possibly options given, get cookie...
+	    options = value || {};
+	    var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
+	    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+	};
+
+	function readCookie(name) {
+		return $.cookie(name);
+	};
+
+	function setCookie( name, value)
+	{
+		$.cookie(name, value, { expires: 7, path: '/' });
+	};
+
+	$(document).ready(function(){
+		$(".feed_description a").attr("target", "_blank");
+		var order_type = readCookie("order_type_" + id_page);
+
+		if (order_type == null || order_type == "")
+		{
+			setCookie('order_type_' + id_page, 'latest');
+			order_type = 'latest';
+		}
+
+		$("#select_order_type").change(function(){
+			order_type = readCookie('order_type_' + id_page);
+			if ($(this).val() == "latest" && order_type == 'sources')
+			{
+				$(".feed_news").removeClass("hidden");
+				$(".detail_source").hide();
+				viewByLatestNews();
+				$(this).val("latest");
+				$("#feeds_news_sources").hide();
+				$("#feeds_news_latest").show();
+				setCookie('order_type_' + id_page, 'latest');
+                parse();
+			}
+			else if ($(this).val() == "sources" && order_type == 'latest')
+			{
+				viewBySources();
+				detail_source = readCookie('detail_source_' + id_page);
+
+				$(".detail_source").show();
+				$(this).val("sources");
+				$("#feeds_news_latest").hide();
+				$("#feeds_news_sources").show();
+
+				if (detail_source == null || detail_source == "all")
+				{
+					$("#select_detail_source").val("all");
+					$(".feed_news").removeClass("hidden");
+				}
+				else
+				{
+					$("#select_detail_source").val(detail_source);
+					$(".feed_news").addClass("hidden");
+					$(".slide a").text("[+]");
+					$(".slide a").attr("class", "slide_down");
+					$("#feed_news_" + detail_source).removeClass("hidden");
+					$("#slide_" + detail_source + " a").text("[ - ]");
+					$("#slide_" + detail_source + " a").attr("class", "slide_up");
+				}
+				setCookie('order_type_' + id_page, 'sources');
+                parse();
+			}
+		});
+
+		$("#select_detail_source").change(function(){
+			if ($(this).val() == "all")
+			{
+				$(".feed_news").removeClass("hidden");
+				$(".slide_down").text("[ - ]");
+				$(".slide_down").attr("class", "slide_up");
+			}
+			else
+			{
+				$(".feed_news").addClass("hidden");
+				$(".slide a").text("[+]");
+				$(".slide a").attr("class", "slide_down");
+				$("#slide_" + $(this).val() + " a").text("[ - ]");
+				$("#slide_" + $(this).val() + " a").attr("class", "slide_up");
+				$("#feed_news_" + $(this).val()).removeClass("hidden");
+			}
+
+			if ($(this).val() == "all")
+			{
+				$(".feed_news").removeClass("hidden");
+				$(".slide_down").text("[ - ]");
+				$(".slide_down").attr("class", "slide_up");
+			}
+			setCookie('detail_source_' + id_page, $(this).val());
+		});
+        
+        $(".content_title").click(function(){
+            var current_id = $(this).attr("id");
+            var obj = $("#" + current_id + " .slide a");
+            var slide_class = obj.attr('class');
+            if (slide_class == "slide_up")
+            {
+                $("#feed_news_" + obj.attr("rel")).addClass("hidden");
+				obj.text("[+]");
+				obj.attr("class", "slide_down");
+            }
+            else
+            {
+                $("#feed_news_" + obj.attr("rel")).removeClass("hidden");
+				obj.text("[ - ]");
+				obj.attr("class", "slide_up");
+            }
+            
+        });
+        
+        if (num_rss <= 1)
+        {
+            order_type = 'sources';
+        }
+
+		if (order_type == 'latest')
+		{
+
+			$("#select_order_type").val("latest");
+			$(".detail_source").hide();
+			viewByLatestNews();
+			$("#feeds_news_sources").hide();
+			$("#feeds_news_latest").show();
+		}
+
+		if (order_type == 'sources')
+		{
+			var detail_source = readCookie("detail_source_" + id_page);
+			$(".detail_source").show();
+			$("#select_order_type").val("sources");
+			$("#feeds_news_latest").hide();
+			$("#feeds_news_sources").show();
+
+			if (detail_source == null || detail_source == "all")
+			{
+				$("#select_detail_source").val("all");
+				$(".feed_news").removeClass("hidden");
+				$(".slide a").text("[ - ]");
+				$(".slide a").attr("class", "slide_up");
+			}
+			else
+			{
+				$("#select_detail_source").val(detail_source);
+				$(".feed_news").addClass("hidden");
+				$(".slide a").text("[+]");
+				$(".slide a").attr("class", "slide_down");
+				$("#feed_news_" + detail_source).removeClass("hidden");
+				$("#slide_" + detail_source + " a").text("[ - ]");
+				$("#slide_" + detail_source + " a").attr("class", "slide_up");
+			}
+		}
+	});
+</script>
+<?php
+}
+else
+{
+	?>
+<div class="error_panel"><?php echo $this->translate('THERE_IS_NO_NEW');?></div>
+	<?php
+}
+?>

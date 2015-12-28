@@ -1,0 +1,111 @@
+body,ul,li {
+	margin: 0;
+	padding: 0;
+}
+body {
+	width: 100%;
+	font-size: 12px;
+	font-family: "lucida grande, tahoma", arial, verdana, sans-serif;
+}
+.display_block{
+    display: block;
+}
+.product_contents{
+    width: 960px;
+    margin: 10px auto;
+}
+
+.product_detail{
+    width: 730px;
+    float: left;
+}
+.product_detail .site{
+    float: left;
+    width: 302px;
+    margin: 0 15px 10px 0;
+}
+.product_detail .site .pic{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+    border: 1px solid #E9E9E9;
+    word-wrap: break-word;
+}
+.product_detail .site .pic img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+}
+.product_detail .site .related_pic{
+    position: relative;
+    height: 66px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.product_detail .site .related_pic span.go_next,
+.product_detail .site .related_pic span.go_prev{
+    position: absolute;
+    background: url("http://static.123mua.vn/c/images/v2/prev_next.jpg") no-repeat;
+    width: 16px;
+    height: 33px;
+    cursor: pointer;
+}
+.product_detail .site .related_pic span.go_next{
+    background-position:-16px 0;
+    top:25%;
+    right:0px;
+}
+.product_detail .site .related_pic span.go_prev{
+    top:40%;
+    left:0;
+}
+.product_detail .site .related_pic span.go_next:hover{
+    background-position:-16px -32px;
+}
+.product_detail .site .related_pic span.go_prev:hover{
+    background-position:0 -32px;
+}
+.product_detail .site .related_pic ul{
+    width: 280px;
+    margin-left: 20px;
+}
+.product_detail .site .related_pic ul li{
+    position: relative;
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 3px;
+    margin-right: 2px;
+    padding: 1px;
+    border: 1px solid #E9E9E9;
+    word-wrap: break-word;
+    display: block;
+}
+.product_detail .site .related_pic ul li img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+}
+.product_detail .info{
+    width: 410px;
+    float: left;
+}

@@ -1,0 +1,31 @@
+<?php if (!empty($this->errors)):
+$i = 1;
+?>
+
+<div class="error_panel"><b>Errors:</b><br>
+<?php foreach ($this->errors as $name => $error_arr):
+if (!is_array($error_arr)) $error_arr = array($error_arr);
+foreach ($error_arr as $error):?> <?php echo $i++;?> . <?php
+if ($name == 'id_category')
+{
+	$name = "Category: ";
+} else if ($name == 'new_category'){
+	$name ="New category: ";
+}else if ($name == 'title'){
+	$name ="Title: ";
+} else if ($name == 'link'){
+	$name ="URL: ";
+} else if ($name == 'num_stories')
+{
+	$name="No. items: ";
+}else if ($name == 'id_autopost_config')
+{
+	$name="Frequency: ";
+}else if ($name == 'max_news_post')
+{
+	$name="Max new post: ";
+}
+echo $name . $error;?><br>
+<?php endforeach;?> <?php endforeach;?></div>
+
+<?php endif;?>

@@ -1,0 +1,63 @@
+body,p,a{
+    margin: 0;
+    padding: 0;
+}
+.shop_list{
+    width: 732px;
+    margin: 10px auto;
+}
+.shop_list .head_label{
+    background: url("../image/bg_shops_header.jpg") repeat-x;
+    width: 100%;
+    height: 32px;
+}
+.shop_list .head_label > a{
+    height: 32px;
+    line-height: 100%;
+    display: block;
+    float: left;
+}
+.shop_list .head_label > a span{
+    padding: 0 10px;
+}
+.shop_list .head_label > a.head_name{
+    width: 244px;
+}
+.shop_list .head_label > a.head_contact_info{
+    width: 320px;
+}
+.shop_list .head_label > a.head_status{
+    width: 120px;
+}
+.shop_list .head_label > a.head_action{
+    width: 48px;
+}
+.shop_list .article_list .article{
+    display: inline-block;
+    border-bottom: 1px solid #BBE8FB;
+    padding: 8px 0;
+}
+.shop_list .article_list .article > div{
+    line-height: 150%;
+    float: left;
+}
+.shop_list .article_list .article > div a, .shop_list .article_list .article > div p{
+    display: block;
+    padding: 0px 10px;
+}
+.shop_list .article_list .article > div.article_banner a.banner,
+.shop_list .article_list .article > div.article_banner a.name{
+    width: 224px;
+}
+.shop_list .article_list .article > div.article_banner a.banner img{
+    width: 224px;
+}
+.shop_list .article_list .article > div.contact_info p{
+    width: 300px;
+}
+.shop_list .article_list .article > div.status p{
+    width: 100px;
+}
+.shop_list .article_list .article > div.action a{
+    width: 28px;
+}

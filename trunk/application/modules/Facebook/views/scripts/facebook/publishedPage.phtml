@@ -1,0 +1,17 @@
+<?php $i = sizeof($this->pages);
+if ($i > 0):?>
+<?php echo $this->translate('PUBLISHED_PAGES');?>
+<?php
+foreach ($this->pages as $page):
+$comma = '';
+if ($i-- > 1) $comma = ',';
+$url = 'http://www.facebook.com/pages/' . str_replace(' ', '-', $page['page_name']) . '/' . $page['id_page'] . '?sk=app_' . $this->social->getAppId();
+?>
+<a href="<?php echo $url;?>"><?php echo $this->escape($page['page_name']);?></a>
+<?php echo $comma;?>
+<?php
+endforeach;
+?>
+<br>
+<?php
+endif;?>

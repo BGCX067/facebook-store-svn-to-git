@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/navigation.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".nav-element-1").each(function(){
+                    var obj = $(this);
+                    var obj_position = obj.position();
+                    obj.find(".nav-2").css("top", obj_position.top - 1);
+                });
+            });
+        </script>
+        <div class="navigation">
+            <h3>Manage categories</h3>
+            <ul class="nav-1">
+                <li class="nav-element-1">
+                    <h4><a href="#">All Categories</a><i></i></h4>
+                    <ul class="nav-2">
+                        <li class="nav-element-2">
+                            <a href="#" >Antiques</a>
+                        </li>
+                        <li class="nav-element-2">
+                            <a href="#" >Art</a>
+                        </li>
+                        <li class="nav-element-2">
+                            <a href="#" >Business &amp; Industrial</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-element-1">
+                    <h4><a href="#">All Categories</a><i></i></h4>
+                    <ul class="nav-2">
+                        <li class="nav-element-2">
+                            <a href="#" >Antiques</a>
+                        </li>
+                        <li class="nav-element-2">
+                            <a href="#" >Art</a>
+                        </li>
+                        <li class="nav-element-2">
+                            <a href="#" >Business &amp; Industrial</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>    
+        </div>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+<?php 
+    echo $this->social->render('openGraphHeader', array(
+		'title' => $this->translate('APP_NAME'),
+		'description' => $this->translate('APP_DESC'),
+		'url' => $this->social->getAppUrl(),
+		'image' => STATIC_URL . '/img/logo_stores.jpg')
+    );
+?>

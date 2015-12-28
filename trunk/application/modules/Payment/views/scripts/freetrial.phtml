@@ -1,0 +1,23 @@
+<?php
+$payment = Payment_Manager::getInstance();
+$idPage = $this->social->getIdPage();
+$trialPayment = $payment->getHandlerByCode(Payment_Item_Trial::CODE);
+?>
+
+<?php if ($payment->isExistHandlerByCode(Payment_Item_Campaign::CODE)): ?>
+<?php $campaignPayment = $payment->getHandlerByCode(Payment_Item_Campaign::CODE); ?>
+<?php if ($campaignPayment->isValid($idPage)): ?>
+<!-- End campaign-->
+<?php endif; ?>
+<?php else:?>
+<?php if (!$trialPayment->isValid($idPage)): ?>
+<!--free trial-->
+<div class="sm_message_panel">
+<p class="header"><?php echo $this->translate('UNDER_CONSTRUCTION');?></p>
+</div>
+</div>
+</body>
+</html>
+<?php exit(); ?>
+<?php endif; ?>
+<?php endif; ?>

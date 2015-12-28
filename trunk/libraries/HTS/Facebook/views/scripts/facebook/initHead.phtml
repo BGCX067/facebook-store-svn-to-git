@@ -1,0 +1,7 @@
+<link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL ?>/css/facebook/fb.css" />
+<?php if($this->social->isUseLocalScript()):?>
+    <script type="text/javascript" src="<?php echo STATIC_URL ?>/js/facebook/all.js"></script>
+<?php else:?>
+    <script type="text/javascript" src="//connect.facebook.net/en_US/all.js"></script>
+<?php endif;?>
+<script type="text/javascript" src="<?php echo STATIC_URL ?>/js/facebook/fb.js"></script>

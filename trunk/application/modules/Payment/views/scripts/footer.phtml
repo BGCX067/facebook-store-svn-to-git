@@ -1,0 +1,8 @@
+<!--- Module Payment -->
+<?php $footer = Payment_Manager::getInstance()->getHandlerByCode(Payment_Item_Footer::CODE); ?>
+<?php if (!$footer->isValid($this->social->getIdPage())): ?>
+<div class="ym_footer">
+<div class="footer_contain_img"><a class="footer_img" target="_blank"
+	href="<?php echo $this->social->getAppUrl() ?>"> </a></div>
+</div>
+<?php endif; ?>

@@ -1,0 +1,51 @@
+[production]
+phpSettings.display_startup_errors = 0
+phpSettings.display_errors = 0
+includePaths.library = APPLICATION_PATH "/../library"
+bootstrap.path = APPLICATION_PATH "/Bootstrap.php"
+bootstrap.class = "Bootstrap"
+appnamespace = "Application"
+
+resources.frontController.moduleDirectory = APPLICATION_PATH "/modules"
+resources.frontController.params.displayExceptions = 0
+
+resources.layout.layoutPath = APPLICATION_PATH "/layouts/scripts/"
+resources.view[] =
+
+resources.db.adapter = "pdo_mysql"
+resources.db.params.host = "localhost"
+resources.db.params.username = "root"
+resources.db.params.password = ""
+resources.db.params.dbname = "db_fbrss"
+resources.db.params.charset = "utf8"
+resources.db.isDefaultTableAdapter = true
+
+;storage.adapter = "S3"
+;storage.params.key = "AKIAI33RZGYEMXV4ANJQ" 
+;storage.params.secret = "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" 
+;storage.params.bucket = "younetmedia"
+;storage.params.staticUrl = 'http://younetmedia.s3-website-us-east-1.amazonaws.com'
+
+cache.backend.file.name = "File"
+cache.backend.file.options.cache_dir = CACHE_PATH "/file"
+
+payment.email = "hungnq_1333529540_biz@gmail.com";
+payment.url = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+
+cache.backend.memcached.name = "HTS_Cache_Backend_Memcached"
+cache.backend.memcached.customBackendNaming = true
+;cache.backend.memcached.options.servers.1.host = 127.0.0.1
+cache.backend.memcached.options.servers.2.host = 192.168.11.225
+
+googleAnalytics.id = "UA-5894967-15"
+
+[staging : production]
+
+[testing : production]
+phpSettings.display_startup_errors = 1
+phpSettings.display_errors = 1
+
+[development : production]
+phpSettings.display_startup_errors = 1
+phpSettings.display_errors = 1
+resources.frontController.params.displayExceptions = 1

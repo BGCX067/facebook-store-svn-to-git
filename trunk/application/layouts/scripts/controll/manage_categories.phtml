@@ -1,0 +1,31 @@
+<?php
+    $categories_list      = !empty ($this->extra_values['categories_list'])?$this->extra_values['categories_list']:array();
+    $id_category_active = !empty ($this->extra_values['id_category'])?$this->extra_values['id_category']:null;
+?>
+<div class="manage_accounts">
+    <div class="bodyMenu">
+        <h4><?php echo $this->translate('CONTROL_MANAGE_CATEGORIES');?></h4>
+        <?php if(count($categories_list)):?>
+        <div class="toplevelnav">
+            <ul>
+                <li class="<?php if($id_category_active == null) echo "active";?>">
+                    <a class="aWrap" href="<?php echo $this->url(array('id_category' => null));?>">
+                        <span class="navSectionTitle"><?php echo HTS_Util::translate('CONTROL_ALL_CATEGORIES')?></span>
+                    </a>
+                </li>
+                <?php foreach ($categories_list as $category):?>
+                <li class="<?php if($category['id'] == $id_category_active) echo "active";?>">
+                    <a class="aWrap" href="<?php echo $this->url(array('id_category' => $category['id']));?>">
+                        <span class="navSectionTitle"><?php echo $category['name']?></span>
+                    </a>
+                </li>
+                <?php endforeach;?>
+            </ul>
+        </div>
+        <?php else:?>
+        <div class="empty_item">
+            <?php echo '<a href="' . $this->url(array('action' => 'create')) . '">' . $this->translate('MENU_CREATE_CATEGORIES') . '</a>';?>
+        </div>
+        <?php endif;?>
+    </div>
+</div>

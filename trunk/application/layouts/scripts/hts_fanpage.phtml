@@ -1,0 +1,68 @@
+<?php echo $this->doctype();?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+
+<meta charset="utf-8" />
+<title><?php echo $this->social->getPageName($this->id_page) . ' - ' . $this->translate('APP_NAME');?></title>
+<link rel="stylesheet" type="text/css"
+	href="<?php echo STATIC_URL . '/css/main_facebook_timeline.css';?>" />
+
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+<script type="text/javascript"
+	src="<?php echo STATIC_URL . '/javascript/main.js';?>"></script>
+
+<?php echo $this->social->render('initHead');?>
+</head>
+<body class="fanpage" style="width: 100%">
+<?php echo $this->social->render('initBody');?>
+<?php if ($this->social->isPageAdmin()): ?>
+<div class="sm_admin_pannel">
+<div class="sm_admin_setting"><a
+	href="<?php echo $this->social->url('/rss/rss/list/id_page/' . $this->social->getIdPage()); ?>"
+	title="Go to Admin" target="_blank" class="sm_admin_setting_text">
+Admin panel </a></div>
+<div class="sm_paypal" style="float: right;"><?php echo $this->partial('header.phtml', 'payment', array('social' => $this->social)); ?>
+</div>
+</div>
+<?php endif; ?>
+
+<div id="tabs"><?php
+$count = count($this->categories);
+if ($count > 1) {
+	?>
+<div class="page_tab"><?php
+$index = 0;
+foreach ($this->categories as $category)
+{
+	if ($category['id'] != $this->id_category)
+	{
+		?>
+<div class="menu"><a
+	href="<?php echo $this->social->pageUrl(array('id_category' => $category['id']));?>"
+	rel="<?php echo $category['id']?>" target="_top"> <?php echo $this->escape($category['name']);?>
+</a></div>
+		<?php
+	} else {
+		?>
+
+<div class="menu active"><a
+	href="<?php echo $this->social->pageUrl(array('id_category' => $category['id']));?>"
+	class="selected" rel="<?php echo $category['id']?>" target="_top"> <?php echo $this->escape($category['name']);?>
+</a></div>
+		<?php
+	}
+}
+?></div>
+<?php
+}
+?></div>
+
+<div class="pageContainer"><?php echo $this->layout()->content ?></div>
+
+<?php echo $this->partial('footer.phtml', 'payment', array('social' => $this->social)); ?>
+<?php echo $this->social->render('autoResize'); ?>
+<?php echo $this->social->render('endBody'); ?>
+</body>
+</html>

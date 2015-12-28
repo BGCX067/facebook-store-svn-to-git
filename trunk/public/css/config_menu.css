@@ -1,0 +1,38 @@
+.config_menu{
+	width: auto;
+	height: 33px;
+	display: inline-block;
+}
+.config_menu ul {
+	
+}
+.config_menu ul li {
+	float: left;
+	width: auto;
+	display: inline-block;
+	background: url("../img/li.png") no-repeat right;
+}
+.config_menu ul li.last {
+	background: none;
+}
+.config_menu ul li a {
+	padding: 0px 15px;
+	display: inline-block;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 14px;
+}
+.config_menu ul li a:HOVER,.config_menu ul li a.btn_admin:HOVER,.config_menu ul li a.btn_config:HOVER
+	{
+	background-color: #bb11cc;
+}
+.config_menu ul li > a{
+	padding-left: 32px;
+}
+.config_menu ul li a.btn_admin {
+	background: url("../img/icon_admin.png") no-repeat left;
+}
+
+.config_menu ul li a.btn_config {
+	background: url("../img/icon_config.png") no-repeat 6px;
+}

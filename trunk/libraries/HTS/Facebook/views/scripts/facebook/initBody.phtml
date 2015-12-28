@@ -1,0 +1,18 @@
+<div id="fb-root"></div>
+<script type="text/javascript">
+    social_oauth_scope                 = '<?php echo $this->social->getOAuthScope() ?>';
+    social_app_url				= "<?php echo $this->social->getAppUrl(); ?>";
+    social_app_id				= "<?php echo $this->social->getAppId(); ?>";
+    social_user_id				= "<?php echo $this->social->getIdSocial(); ?>";
+	social_url_fanpage_create	= '//www.facebook.com/pages/create.php';
+	base_url					= "<?php echo $this->baseUrl();?>";
+	$(document).ready(function(){
+		FB.init({
+			appId: '<?php echo $this->social->getAppId(); ?>',
+			status: true,
+			cookie: true,
+			xfbml: true,
+			oauth: true
+		});
+	});
+</script>

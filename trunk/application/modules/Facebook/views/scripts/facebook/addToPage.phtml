@@ -1,0 +1,40 @@
+
+<div class="config_fanpage">
+<div class="guide_config"><?php echo $this->translate('GUIDE_CONFIG_PAGE')?>
+</div>
+<select name='config_id_page' id='config_id_page'>
+	<option value=''><?php echo $this->translate('SELECT_A_FANPAGE')?></option>
+	<?php if (!empty($this->pages)):?>
+	<?php foreach ($this->pages as $page):?>
+	<option value='<?php echo $page['id'];?>'><?php echo $page['name'];?></option>
+	<?php endforeach;?>
+	<?php endif;?>
+</select> <a class="button button_green" id="config_add_to_page"> <?php echo $this->translate('CONFIGURE');?>
+</a> <a class="button button_blue" id="config_refresh_pages"
+	onclick="loadFanPages();"> <?php echo $this->translate('REFRESH');?> </a>
+</div>
+
+<script type="text/javascript">
+    var oauth_scope = '<?php echo $this->social->getOAuthScope()?>';
+	$("#config_add_to_page").click(function(){
+		var id_page = $("#config_id_page").val();
+		if (id_page != "")
+		{
+			var redirect_url = "<?php echo $this->social->url('/rss/rss/list/id_page/');?>" + id_page;
+            
+            isPageInstalled(id_page, function(){
+                top.location = redirect_url;
+            });
+		}
+		else
+		{
+			alert("<?php echo $this->translate('NEED_SELECT_FANPAGE')?>");
+		}		
+	});
+    
+    $("#config_refresh_pages").click(function(){
+        var redirect_url = '<?php echo $this->social->url('/rss/rss/index') ?>';
+        manageFanpages(redirect_url, oauth_scope);
+    });
+
+</script>

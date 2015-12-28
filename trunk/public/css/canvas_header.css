@@ -1,0 +1,40 @@
+.header_container{
+    width: 100%;
+    background: url("../img/bg_header.png") repeat;
+}
+.header{
+    width: 960px;
+    height: 48px;
+    margin: 0 auto;
+}
+.header > div{
+    height: 32px;
+    line-height: 32px;
+}
+.header .header_left{
+    float: left;
+}
+.header .header_left h2{
+    padding: 0 10px;
+    margin: 0;
+}
+.header .header_left img{
+    padding: 0;
+    margin: 0;
+    border: none transparent;
+    height: 42px;
+}
+.header .header_left a img{
+    height: 32px;
+    padding: 2px;
+}
+.header .header_center{
+    float: left;
+}
+.header .header_center .shareUrl{
+    height: 24px;
+    margin: 4px 8px;
+}
+.header .header_right{
+    float: right;
+}

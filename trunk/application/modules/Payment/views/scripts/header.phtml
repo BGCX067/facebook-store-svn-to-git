@@ -1,0 +1,150 @@
+<style>
+.quote_tooltip {
+	background:
+		url("<?php echo $this->baseUrl() ?>/img/quote_tooltip_upside.png")
+		no-repeat scroll left top transparent;
+	display: block;
+	height: 6px;
+	left: 85px;
+	position: absolute;
+	top: -6px;
+	width: 14px;
+}
+
+.add_note:hover,.content_tooltip>ul>li a:hover {
+	text-decoration: none;
+}
+
+.wrap_tooltip {
+	display: inline;
+	height: 15px;
+	line-height: 24px;
+	margin-left: 5px;
+	position: relative;
+	width: 10px;
+}
+
+.tooltip_note {
+	color: #464646;
+	font-size: 11px;
+	padding-left: 0;
+}
+
+.content_tooltip p {
+	border: none;
+	text-decoration: none;
+}
+
+.content_tooltip {
+	background: none repeat scroll 0 0 #FFFCB1;
+	border: 1px solid #DFDA5F;
+	display: none;
+	left: -80px;
+	padding: 5px 12px 0px;
+	position: absolute;
+	top: 26px;
+	z-index: 99999;
+}
+
+.content_tooltip p {
+	padding-bottom: 5 px;
+}
+
+.content_tooltip>ul {
+	text-align: right;
+}
+
+.content_tooltip>ul>li {
+	display: inline-block;
+	padding-top: 5px;
+}
+
+.content_tooltip>ul>li a:hover {
+	text-decoration: none;
+}
+
+.content_tooltip:hover {
+	display: block;
+}
+
+.tooltip_note:hover+.content_tooltip,.content_tooltip:hover {
+	display: block;
+}
+
+.comment {
+	font-family: Arial, sans-serif;
+	color: #000;
+	font-size: 11px
+}
+
+.sm_paypal {
+	height: 24px;
+	line-height: 24px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.sm_paypal>span {
+	font-size: 13px;
+	height: 24px;
+	line-height: 24px;
+	padding-right: 5px;
+	vertical-align: top;
+}
+</style>
+<script>
+	(function($){
+		$.fn.ymTooltip = function(options){
+			var defaults = {
+				width: 250
+			}
+						 
+			var options =  $.extend(defaults, options);	
+					
+			return this.each(function(){
+				var obj = $(this);
+				var html = '<span class="wrap_tooltip">' +
+					'<a class="tooltip_note" href="javascript:void(0);">' + obj.html() + '</a>' +
+					'	<span class="content_tooltip">' +
+					'  	<span class="quote_tooltip">&nbsp;</span>' +
+					' 		<p class="comment" style="text-align:left">' + obj.attr('tooltip') + '</p>' +
+					'	</span>' +
+					'</span>';
+				$(obj).html(html);
+				$('.content_tooltip').css('width',options.width);
+			});
+		}
+	})(jQuery);
+	$(document).ready(function(){
+		$("#helpTooltip").ymTooltip({width:180});
+	});
+</script>
+<?php $payment = Payment_Manager::getInstance(); ?>
+<?php $footer = $payment->getHandlerByCode(Payment_Item_Footer::CODE); ?>
+<?php if ($footer->isValid($this->social->getIdPage())): ?>
+<?php $tooltip = '<a href="javascript:void(0)" id="helpTooltip" tooltip=\'Remove "Powered by YouNetMedia"\'><img src="http://s3.amazonaws.com/younetmedia/icon-help.jpg" style="margin-top:3px;border: none"/></a>';?>
+<span><?php echo sprintf($this->translate('MSG_AFTER_REMOVE_POWER_BY'), $payment->getItemPrice(Payment_Item_Footer::CODE), $tooltip, date('d-M-Y', $payment->getTimeExpired($this->social->getIdPage(), Payment_Item_Footer::CODE))); ?></span>
+<?php else: ?>
+<span><?php echo sprintf($this->translate('MSG_REMOVE_POWER_BY'), $payment->getItemPrice(Payment_Item_Footer::CODE)); ?></span>
+
+<form target="_blank" style="display: inline" method="post"
+	action="<?php echo $payment->getPayPalUrl() ?>"><input type="hidden"
+	value="_xclick-subscriptions" name="cmd" /> <input type="hidden"
+	value="<?php echo $payment->getBusinessEmail() ?>" name="business" /> <input
+	type="hidden" value="RO" name="lc" /> <input type="hidden"
+	value="<?php echo $this->escape($payment->getItemTitle(Payment_Item_Footer::CODE)) ?>"
+	name="item_name" /> <input type="hidden"
+	value="<?php echo Payment_Item_Footer::CODE ?>" name="item_number" /> <input
+	type="hidden" value="1" name="no_note" /> <input type="hidden"
+	value="1" name="no_shipping" /> <input type="hidden" value="1"
+	name="rm" /> <input type="hidden"
+	value="<?php echo $this->serverUrl($this->url(array('module' => 'payment', 'controller' => 'index', 'action' => 'index', 'id_page' => $this->social->getIdPage(), 'id_user' => $this->social->getUser()->id))); ?>"
+	name="notify_url" /> <input type="hidden" value="1" name="src" /> <input
+	type="hidden"
+	value="<?php echo $payment->getItemPrice(Payment_Item_Footer::CODE) ?>"
+	name="a3" /> <input type="hidden" value="1" name="p3" /> <input
+	type="hidden" value="M" name="t3" /> <input type="hidden" value="USD"
+	name="currency_code" /> <input type="image" border="0"
+	alt="PayPal - The safer, easier way to pay online!" name="submit"
+	src="<?php echo STATIC_URL ?>/img/paypalsubscribe.png" /></form>
+<?php endif; ?>

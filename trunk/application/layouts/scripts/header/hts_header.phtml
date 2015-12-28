@@ -1,0 +1,18 @@
+<div class="header">
+    <div class="header_left">
+<!--        <h2 class="logo_text"><?php echo $this->translate('APP_NAME') ?></h2>-->
+        <img alt="<?php echo $this->translate('APP_NAME') ?>" src="<?php echo IMG_URL . '/logo_120_1.png'?>"/>
+    </div>
+    <div class="header_center">
+        <div class="shareUrl">
+            <?php
+            echo $this->social->render('likeUrl', array(
+                'url' => $this->social->url('/rss/rss/index')
+            ));
+            ?>
+        </div>
+    </div>
+    <div class="header_right">
+        <?php echo $this->partial("menu/config_menu.phtml");?>
+    </div>
+</div>

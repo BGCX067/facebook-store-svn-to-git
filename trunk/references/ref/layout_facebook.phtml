@@ -1,0 +1,65 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" <?php if( defined('USING_FIREBUG_LITE') && USING_FIREBUG_LITE == TRUE ) echo 'debug="true"' ?> >
+<head>
+	<script type="text/javascript">
+		if( top == window )
+		{
+			top.location.href = "<?php echo $this->socialUrl(array()) ?>?<?php echo http_build_query($_GET)?>";
+		}
+	</script>
+	<!-- Common -->
+	<meta charset="utf-8" />
+	<base href="<?php echo $this->serverUrl($this->baseUrl()) ?>/" />	
+	<?php echo $this->headMeta() ?>
+	
+	<!-- CSS -->
+	<link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/common.backend.css?v=' . SKIN_VERSION?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/main.backend.css?v=' . SKIN_VERSION?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo STATIC_URL . '/css/layout.backend.css?v=' . SKIN_VERSION?>" />
+	<?php echo $this->headLink() ?>
+	
+	<!-- Script -->
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="<?php echo STATIC_URL .  '/javascript/common.js?v=' . SKIN_VERSION?>"></script>
+<?php if( defined('USING_FIREBUG_LITE') && USING_FIREBUG_LITE == TRUE):?>
+	<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
+<?php endif ?>
+	<?php echo $this->headScript() ?>
+	<script>
+		static_url = "<?php echo STATIC_URL?>";
+	</script>
+	<?php echo $this->social->render('initHead') ?>
+</head>
+<body>
+	<?php echo $this->social->render('initBody') ?>
+<div class="sm_main">
+	<div class="sm_header">
+		<div class="sm_container">
+			<div class="sm_wiget sm_logo">
+				<?php echo $this->partial('default/logo.phtml',array('social' => $this->social)) ?>
+			</div>
+			<?php echo $this->placeholder('select_fanpages') ?>
+		</div>
+	</div>
+	<div class="sm_body">
+		<div class="sm_container">
+			<?php if($this->use_admin_menu):?>
+				<?php echo $this->partial('default/menu_admin.phtml') ?>
+			<?php else:?>
+				<?php echo $this->partial('default/menu_public.phtml') ?>
+			<?php endif;?>
+			<?php echo $this->layout()->content ?>
+		</div>
+	</div>
+	<div class="sm_footer">
+		<div class="sm_container">
+			<?php echo $this->translate('POWERED_BY') ?> <a href="http://media.younetco.com" target="_blank">YouNet Media</a>
+		</div>
+	</div>
+</div> <!-- end .coupon -->
+<?php echo $this->social->render('endBody') ?>
+<?php echo $this->partial('default/scrollTop.phtml') ?>
+</body>
+</html>

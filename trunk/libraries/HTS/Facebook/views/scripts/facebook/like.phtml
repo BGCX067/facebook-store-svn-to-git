@@ -1,0 +1,18 @@
+<?php 
+    $layout     = ('full' == $this->layout || 'standard' == $this->layout)? $this->layout: 'standard';
+    $url        = ($this->url)? $this->url: "#";
+    $send       = ($this->send)? 'true': 'false';
+    $width      = !empty($this->width)? $this->width:'auto';
+    $show_face  = ($this->url == true)? 'true': 'false';
+?>
+<div class="fb-like"
+	 data-layout="<?php echo $layout ?>"
+	 data-href="<?php echo $url ?>"
+	 data-send="<?php echo $send ?>"
+	 data-width="<?php echo $width ?>"
+	 data-show-faces="<?php echo $show_face ?>"
+    <?php if( !empty($this->font) ):?>
+        data-font="<?php echo $this->font ?>"
+    <?php endif;?>
+>	
+</div>

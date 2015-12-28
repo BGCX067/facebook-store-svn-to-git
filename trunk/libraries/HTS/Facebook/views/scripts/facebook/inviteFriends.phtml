@@ -1,0 +1,11 @@
+<?php 
+    $size       = ($this->size)? $this->size: 'normal';
+    $title      = ($this->title)? $this->title: 'Title';
+    $message    = ($this->message)? $this->message: 'Message';
+    $data       = ($this->data)? $this->data: 'Data';
+?>
+<a class="fb_invite <?php echo $size; ?>" 
+   href="javascript:void(0)" 
+   onclick="fbInviteFriends('<?php echo $title?>','<?php echo $message?>', '<?php echo $data?>')">
+	<?php echo $this->translate('FB_INVITE') ?>
+</a>

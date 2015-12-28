@@ -1,0 +1,12 @@
+<?php
+$this->doctype(Zend_View_Helper_Doctype::XHTML1_RDFA);
+$this->headMeta()->setProperty('og:title', $this->title);
+$this->headMeta()->setProperty('og:type', isset($this->type) ? $this->type : 'website');
+$this->headMeta()->setProperty('og:url', $this->url);
+$this->headMeta()->setProperty('og:image', $this->image);
+if (isset($this->site_name))
+$this->headMeta()->setProperty('og:site_name', $this->site_name); //optional
+$this->headMeta()->setProperty('og:description', $this->description);
+$this->headMeta()->setProperty('fb:app_id', $this->social->getAppId());
+$this->headMeta()->setProperty('fb:admins', '519123390');
+?>

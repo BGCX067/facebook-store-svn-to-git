@@ -1,0 +1,53 @@
+ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.action_control{
+    margin-left: 120px;
+    position: relative;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer;
+}
+.action_control:hover{
+    border: 1px solid #BBE8FB;
+}
+.action_control span{
+    display: block;
+    width: 80px;
+    line-height: 28px;
+    text-align: center;
+    padding-right: 18px;
+    background: url("../image/icon_arrow.gif") no-repeat 80px 10px;
+}
+.action_control:hover span{
+    background: url("../image/icon_arrow_hover.gif") no-repeat 80px 10px;
+}
+.action_control .action_list{
+    position: absolute;
+    top: 28px;
+    right: -1px;
+    display: none;
+}
+.action_control:hover .action_list{
+    display: block;
+}
+.action_control .action_list ul, .action_control .action_list ul li, .action_control .action_list ul li a{
+    display: block;
+}
+.action_control .action_list ul{
+    border: 1px solid #BBE8FB;
+}
+.action_control .action_list ul li a{
+    text-decoration: none;
+    line-height: 24px;
+    width: 80px;
+    text-align: left;
+    padding-left: 18px;
+}
+.action_control .action_list ul li a:hover{
+    background-color: #3B5998;
+    color: #FFFFFF;
+}

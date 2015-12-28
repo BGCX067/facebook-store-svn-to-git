@@ -1,0 +1,21 @@
+<!-- 
+<script>
+		FB.api('/me', function(user) {
+           if(user != null) {
+              var image = document.getElementById('image');
+              image.src = 'http://graph.facebook.com/' + user.id + '/picture';
+              //var name = document.getElementById('name');
+              //name.innerHTML = user.name;
+
+              var link = document.getElementById('profile_link');
+              link.href = "http://www.facebook.com/profile.php?id=" + user.id;
+           }
+         });
+</script>
+<?php $user = $this->social->getUser();?>
+<div style="text-align:right">
+	<?php echo $this->translate('LOGGED_IN');?> <b><?php echo $user['first_name'] . ' ' . $user['last_name'];?></b>	
+	<a id="profile_link" href=""><img id="image"/></a>	
+</div>
+<br>
+-->

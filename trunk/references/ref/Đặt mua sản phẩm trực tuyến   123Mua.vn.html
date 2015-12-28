@@ -1,0 +1,840 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Đặt mua sản phẩm trực tuyến | 123Mua.vn</title>
+<meta name="keywords"
+	content="mua,123mua,123 mua,mua hàng,mua hàng online,bán hàng,bán hàng online,máy vi tính,áo quần,thời trang,linh kiện,laptop,hàng giảm giá,hàng giá rẻ" />
+<meta name="description"
+	content="123mua - website mua bán online hàng đầu Việt Nam" />
+<meta name="alexaVerifyID" content="biwpTrS8NZvAJP6OVLgl6lrDcSA" />
+<meta name="msvalidate.01" content="8FFDCAB8CF7FD368F66038C251BA13C2" />
+<meta name="robots" content="index, follow" />
+<meta name="google-site-verification"
+	content="3Bga2tEjat0imt15v39N2Wjte0Ufa99a-tU8E-Awq0E" />
+<link rel="shortcut icon" type="image/x-icon"
+	href="http://static.123mua.vn/c/images/favicon.ico" />
+<link href="http://static.123mua.vn/c/css/layout_123mua.1.0.98.css"
+	media="screen" rel="stylesheet" type="text/css" />
+<link href="http://static.123mua.vn/c/css/boxy.classic.css"
+	media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="http://static.123mua.vn/c/js/jquery.js"></script>
+<script type="text/javascript"
+	src="http://static.123mua.vn/c/js/jquery.validate.pack.js"></script>
+<script type="text/javascript"
+	src="http://static.123mua.vn/c/js/common.1.1.28.js"></script>
+<script type="text/javascript"
+	src="http://static.123mua.vn/c/js/jquery.boxy.1.0.1.js"></script>
+<script type="text/javascript"
+	src="http://static.123mua.vn/c/js/myboxy.1.0.6.js"></script>
+<script type="text/javascript"
+	src="http://static.123mua.vn/c/js/jquery.plus.js"></script>
+<!--[if lte IE 8]>
+    <style type="text/css">
+    .boxRadius{border-radius:4px;behavior:url(http://static.123mua.vn/c/js/ie-css3.htc)}
+    a.thumb_big{display:block}    
+    a.thumb_big span{display:inline-block;height:100%}    
+    </style>
+    <![endif]-->
+
+<script type="text/javascript">
+		document.domain="123mua.vn";
+		var baseurl = "http://www.123mua.vn";
+		var imgurl = "http://static.123mua.vn/c/images";
+		var flgBool = false;
+		var timeoutinteraction = 0;
+		zme_avatar_width = "auto";
+    	zme_avatar_heigth = "auto";
+    	zme_avatar_tag = "span";
+    	zme_avatar_size = "50";
+    	var ME_ID = '0';
+    	var ME_UNAME = '';
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+				getlogininfo(2, null);
+				trackPageActivity();
+	});
+	</script>
+</head>
+<body>
+<div class="header">
+<h1 style="margin: 0"><a title="123mua.vn - Thuận mua vừa bán"
+	href="http://www.123mua.vn?ref=logo"><img
+	src="http://static.123mua.vn/c/images/v2/logo_123mua.png"
+	alt="123mua.vn" /></a></h1>
+<form class="search clearfix" id="frmSearch" method="post"
+	onsubmit="return cmd_search();" action="/">
+<fieldset><span class="what-field"> <input
+	class="home-what" id="keyword" name="keyword"
+	value="Bạn tìm gì cho ngày hôm nay?" type="text"
+	onBlur="if(this.value=='')this.value='Bạn tìm gì cho ngày hôm nay?'"
+	onFocus="if(this.value=='Bạn tìm gì cho ngày hôm nay?')this.value=''"></span>
+<span class="search-field"> <input class="btn-search"
+	id="cmd_keyword" name="" type="submit"></span>
+<div class="suggestionsBox" id="suggestions" style="display: none">
+<div class="suggestionList" id="autoSuggestionsList"></div>
+</div>
+</fieldset>
+</form>
+<form action="https://sso2.zing.vn/index.php?method=xcheck_login"
+	name="loginHead" id="loginHead" method="post">
+<ul class="clearfix">
+	<li class="span first" id="_loginAlr"><a title="Đăng nhập"
+		class="log-in" rel="nofollow" onclick="submitLogin();"
+		href="javascript:void(0);">Đăng nhập</a> <a rel="nofollow"
+		href="http://id.me.zing.vn/register?ref=http%3A%2F%2Fwww.123mua.vn%2Fuser%2Fsession%3Fredirect%3D%2Forder%2Fcheckout%2Fid%2F27872002.553986.94827&amp;getsession=1"
+		target="_blank">Đăng ký</a></li>
+	<li style="display: none;" class="span nav-user"><a
+		href="http://www.123mua.vn/myaccount/overview">Quản lý cá nhân</a>
+	<ul class="dropbox-user" style="display: none">
+		<li><a href="http://www.123mua.vn/myaccount/overview"><strong>Quản
+		lý cá nhân</strong></a></li>
+		<li><a href="http://www.123mua.vn/myproduct/productcreate">Đăng
+		bán</a></li>
+		<li><a href="http://www.123mua.vn/myproduct/productlist">Quản
+		lý sản phẩm</a></li>
+		<li><a href="http://www.123mua.vn/myorder/orderlist">Quản lý
+		đơn hàng</a></li>
+		<li><a href="http://www.123mua.vn/myproduct/wishlist">SP yêu
+		thích</a></li>
+		<li><a href="http://www.123mua.vn/messagebox/inbox">Hộp tin
+		nhắn</a></li>
+		<li><a href="http://www.123mua.vn/service/cashcharge">Nạp
+		tiền</a></li>
+	</ul>
+	</li>
+	<li class="span"><a rel="nofollow"
+		href="javascript:OpenWin('/content/faqs/index.htm',600,590);">Trợ
+	giúp</a></li>
+</ul>
+<input type="hidden" name="u" value="http://www.123mua.vn/user/xlogin" />
+<input type="hidden" name="aid" value="7" /></form>
+</div>
+<!--end header-->
+<div class="nav">
+<div class="menu">
+<ul class="menu-inside">
+	<li class="menu-home"><a href="http://www.123mua.vn?ref=home-menu">&nbsp;</a></li>
+	<li class="cat"><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang/">Thời trang - Mỹ phẩm</a>
+	<ul class="subnav">
+		<li class="subcat sub-viewmore"><a
+			href="http://www.123mua.vn/thoi-trang-nu/">Thời trang nữ</a><span></span>
+		<ul class="sub-subnav">
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nu/quan-ao-nu/">Quần áo nữ</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nu/giay-dep-nu/">Giầy dép
+			nữ</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nu/bop-vi-tui-xach-day-nit-nu/">Ví
+			nữ - Túi xách - Dây nịt</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nu/dong-ho-mat-kinh-nu/">Đồng
+			hồ - Mắt kính</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nu/trang-suc-phu-kien-nu/">Trang
+			sức - Phụ kiện</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nu/second-hand-nu/">Second
+			hand (2hand)</a></li>
+		</ul>
+		</li>
+		<li class="subcat sub-viewmore"><a
+			href="http://www.123mua.vn/thoi-trang-nam/">Thời trang nam</a>
+		<ul class="sub-subnav">
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nam/quan-ao-nam/">Quần áo
+			nam</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nam/giay-dep-nam/">Giầy
+			dép nam</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nam/bop-vi-tui-xach-day-nit-nam/">Bóp
+			ví - Túi xách - Dây nịt</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nam/dong-ho-mat-kinh-nam/">Đồng
+			hồ - Mắt kính</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nam/phu-kien-nam/">Phụ
+			kiện dành cho nam</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thoi-trang-nam/second-hand-nam/">Second
+			hand (2hand)</a></li>
+		</ul>
+		</li>
+		<li class="subcat sub-viewmore"><a
+			href="http://www.123mua.vn/nuoc-hoa-my-pham/">Nước hoa & Mỹ phẩm</a>
+		<ul class="sub-subnav">
+			<li class="subcat"><a
+				href="http://www.123mua.vn/nuoc-hoa-my-pham/nuoc-hoa/">Nước hoa</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/nuoc-hoa-my-pham/my-pham-trang-diem/">Mỹ
+			phẩm, trang điểm</a></li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li class="cat"><a rel="permalink"
+		href="http://www.123mua.vn/qua-tang">Quà tặng - Quà lưu niệm</a>
+	<ul class="subnav">
+		<li class="subcat"><a
+			href="http://www.123mua.vn/qua-tang-hoa-thiep/hoa-tuoi-thiep-moi/">Hoa
+		- Thiệp</a><span></span></li>
+		<li class="subcat"><a
+			href="http://www.123mua.vn/qua-tang-hoa-thiep/qua-tang/">Quà tặng</a></li>
+		<li class="subcat"><a
+			href="http://www.123mua.vn/qua-tang-hoa-thiep/do-choi/">Đồ chơi</a></li>
+	</ul>
+	</li>
+	<li class="cat"><a rel="permalink"
+		href="http://www.123mua.vn/ky-thuat-so/">Kỹ thuật số</a>
+	<ul class="subnav">
+		<li class="subcat sub-viewmore"><a
+			href="http://www.123mua.vn/dien-thoai/">Điện thoại</a><span></span>
+		<ul class="sub-subnav">
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-thoai/dien-thoai-chinh-hang/">Chính
+			hãng / Xách tay</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-thoai/dien-thoai-trung-quoc/">Điện
+			thoại Trung Quốc</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-thoai/dien-thoai-cu/">Điện thoại
+			cũ</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-thoai/phu-kien-dien-thoai/">Phụ
+			kiện điện thoại</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-thoai/sim-so-dep/">Sim số - Dịch
+			vụ làm sim</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-thoai/sua-chua-dien-thoai/">Dịch
+			vụ sửa chữa</a></li>
+		</ul>
+		</li>
+		<li class="subcat sub-viewmore"><a
+			href="http://www.123mua.vn/thiet-bi-nghe-nhin/">Thiết bị nghe
+		nhìn</a>
+		<ul class="sub-subnav">
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thiet-bi-nghe-nhin/may-choi-game/">Máy
+			chơi game</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thiet-bi-nghe-nhin/phu-kien-kts/">Phụ
+			kiện KTS</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thiet-bi-nghe-nhin/may-nghe-nhac/">Máy
+			nghe nhạc </a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thiet-bi-nghe-nhin/may-anh-may-quay-phim/">Máy
+			ảnh - Máy quay phim</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thiet-bi-nghe-nhin/tai-nghe/">Tai
+			nghe</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/thiet-bi-nghe-nhin/sua-chua-may-anh-may-quay-phim/">Dịch
+			vụ sửa chữa</a></li>
+		</ul>
+		</li>
+		<li class="subcat sub-viewmore"><a
+			href="http://www.123mua.vn/may-tinh-laptop/">Máy tính -linh kiện</a>
+		<ul class="sub-subnav">
+			<li class="subcat"><a
+				href="http://www.123mua.vn/may-tinh-laptop/laptop-gia-tot/">Laptop</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/may-tinh-laptop/may-tinh-bang/">Máy
+			tính bảng</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/may-tinh-laptop/may-pc/">Máy vi tính
+			- PC</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/may-tinh-laptop/linh-kien-may-tinh/">Linh
+			kiện - Phụ kiện</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/may-tinh-laptop/sua-chua-may-tinh/">Dịch
+			vụ sửa chữa</a></li>
+		</ul>
+		</li>
+		<li class="subcat sub-viewmore"><a
+			href="http://www.123mua.vn/dien-tu/">Hàng điện tử</a>
+		<ul class="sub-subnav">
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-tu/dien-gia-dung/">Điện gia dụng</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-tu/may-van-phong/">Máy văn phòng</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-tu/camera-quan-sat/">Camera quan
+			sát</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-tu/sua-chua-hang-dien-tu/">Dịch
+			vụ sửa chữa bảo trì</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-tu/may-cong-nghiep/">Máy công
+			nghiệp</a></li>
+			<li class="subcat"><a
+				href="http://www.123mua.vn/dien-tu/may-moc-khac/">Máy móc khác</a></li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li class="cat"><a rel="permalink"
+		href="http://www.123mua.vn/me-va-be">Mẹ và bé</a>
+	<ul class="subnav">
+		<li class="subcat"><a rel="permalink"
+			href="http://www.123mua.vn/me-va-be/thoi-trang-tre-em/">Thời
+		trang trẻ em</a></li>
+		<li class="subcat"><a rel="permalink"
+			href="http://www.123mua.vn/me-va-be/thoi-trang-ba-bau/">Thời
+		trang bà bầu</a></li>
+		<li class="subcat"><a rel="permalink"
+			href="http://www.123mua.vn/me-va-be/do-cho-be/">Đồ cho bé</a></li>
+		<li class="subcat"><a rel="permalink"
+			href="http://www.123mua.vn/me-va-be/do-cho-me/">Đồ cho mẹ</a></li>
+	</ul>
+	</li>
+	<li class="cat"><a rel="permalink"
+		href="http://www.123mua.vn/quoc-te-thieu-nhi-2012/?utm_source=header&utm_medium=menu&utm_campaign=quoc-te-thieu-nhi-2012">Quốc
+	tế thiếu nhi<img src="http://static.123mua.vn/c/images/icon_hot.gif" /></a></li>
+	<li class="end"><a class="menu-expand" href="javascript:void(0);">Tất
+	cả</a></li>
+</ul>
+<div class="subnav-content" style="display: none">
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nu/">Thời trang nữ</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nu/quan-ao-nu/">Quần áo nữ</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nu/giay-dep-nu/">Giày dép nữ</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nu/bop-vi-tui-xach-day-nit-nu/">Ví
+	nữ - Túi xách - Dây nịt</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nu/dong-ho-mat-kinh-nu/">Đồng
+	hồ - Mắt kính</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nu/trang-suc-phu-kien-nu/">Trang
+	sức - Phụ kiện</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nu/second-hand-nu/">Second
+	hand (2hand)</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nam/">Thời trang nam</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nam/quan-ao-nam/">Quần áo
+	nam</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nam/giay-dep-nam/">Giày dép
+	nam</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nam/bop-vi-tui-xach-day-nit-nam/">Bóp
+	ví - Túi xách - Dây nịt</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nam/dong-ho-mat-kinh-nam/">Đồng
+	hồ - Mắt kính</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nam/phu-kien-nam/">Phụ kiện
+	dành cho nam</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thoi-trang-nam/second-hand-nam/">Second
+	hand (2hand)</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/nuoc-hoa-my-pham/">Nước hoa - Mỹ phẩm</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/nuoc-hoa-my-pham/nuoc-hoa/">Nước hoa</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/nuoc-hoa-my-pham/my-pham-trang-diem/">Mỹ
+	phẩm, trang điểm</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/qua-tang-hoa-thiep/">Quà tặng - Quà lưu
+	niệm</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/qua-tang-hoa-thiep/hoa-tuoi-thiep-moi/">Hoa
+	- Thiệp</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/qua-tang-hoa-thiep/qua-tang/">Quà tặng</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/qua-tang-hoa-thiep/do-choi/">Đồ chơi</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/noi-that-ngoai-that/">Nội thất - Đồ
+	dùng gia đình</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/noi-that-ngoai-that/noi-ngoai-that/">Nội
+	- Ngoại thất</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/noi-that-ngoai-that/do-dung-gia-dinh/">Đồ
+	dùng gia đình</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/dien-thoai/">Điện thoại</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-thoai/dien-thoai-chinh-hang/">Chính
+	hãng / Xách tay</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-thoai/dien-thoai-trung-quoc/">Điện
+	thoại Trung Quốc</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-thoai/dien-thoai-cu/">Điện thoại
+	đã qua sử dụng</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-thoai/phu-kien-dien-thoai/">Phụ
+	kiện điện thoại</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-thoai/sim-so-dep/">Sim số - Dịch
+	vụ làm sim</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-thoai/sua-chua-dien-thoai/">Dịch
+	vụ sửa chữa</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/thiet-bi-nghe-nhin/">Thiết bị nghe nhìn</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thiet-bi-nghe-nhin/may-choi-game/">Máy
+	chơi game</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thiet-bi-nghe-nhin/phu-kien-kts/">Phụ
+	kiện KTS</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thiet-bi-nghe-nhin/may-nghe-nhac/">Máy
+	nghe nhạc </a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thiet-bi-nghe-nhin/may-anh-may-quay-phim/">Máy
+	ảnh - Máy quay phim</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thiet-bi-nghe-nhin/tai-nghe/">Tai nghe</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/thiet-bi-nghe-nhin/sua-chua-may-anh-may-quay-phim/">Dịch
+	vụ sửa chữa</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/may-tinh-laptop/">Máy tính - linh kiện</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/may-tinh-laptop/laptop-gia-tot/">Laptop</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/may-tinh-laptop/may-tinh-bang/">Máy
+	tính bảng</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/may-tinh-laptop/may-pc/">Máy vi tính -
+	PC</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/may-tinh-laptop/linh-kien-may-tinh/">Linh
+	kiện - Phụ kiện</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/may-tinh-laptop/sua-chua-may-tinh/">Dịch
+	vụ sửa chữa</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/dien-tu/">Hàng điện tử</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-tu/dien-gia-dung/">Điện gia dụng</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-tu/may-van-phong/">Máy văn phòng</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-tu/camera-quan-sat/">Camera quan
+	sát</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-tu/sua-chua-hang-dien-tu/">Dịch vụ
+	sửa chữa bảo trì</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-tu/may-cong-nghiep/">Máy công
+	nghiệp</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/dien-tu/may-moc-khac/">Máy móc khác</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/oto-xe-may/">Ô tô - Xe máy</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/oto-xe-may/mua-ban-oto/">Ô tô</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/oto-xe-may/xe-may/">Xe máy</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/oto-xe-may/xe-dap/">Xe đạp</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/oto-xe-may/linh-kien-phu-kien-xe/">Linh
+	kiện - Phụ kiện</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/">Tổng hợp</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/cay-canh-vat-nuoi/">Cây cảnh -
+	Vật nuôi</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/mua-ban-nha-dat/">Nhà đất</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/ve-may-bay/">Vé máy bay, vé
+	tàu,...</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/dich-vu-cuoi-ao-cuoi/">Dịch vụ
+	cưới - Áo cưới</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/du-lich-khach-san/">Du lịch &
+	Khách sạn</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/am-thuc/">Ẩm thực</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/sach-cd-dvd/">Sách/CD/ DVD</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/cham-soc-suc-khoe/">Chăm sóc
+	sức khỏe</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/tong-hop-khac/">Khác</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/tong-hop/dich-vu-khac/">Dịch vụ</a></li>
+</ul>
+<ul class="object_menu">
+	<li class="first"><a rel="permalink"
+		href="http://www.123mua.vn/me-va-be/">Mẹ và bé</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/me-va-be/thoi-trang-tre-em/">Thời trang
+	trẻ em</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/me-va-be/thoi-trang-ba-bau/">Thời trang
+	bà bầu</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/me-va-be/do-cho-be/">Đồ cho bé</a></li>
+	<li><a rel="permalink"
+		href="http://www.123mua.vn/me-va-be/do-cho-me/">Đồ cho mẹ</a></li>
+</ul>
+<a class="close-menu" href="#"><img width="52" height="16"
+	src="http://static.123mua.vn/c/images/close_menu.1.0.1.jpg"
+	alt="Đóng lại" /></a></div>
+<div class="end-menu"><a rel="nofollow" class="fl"
+	href="http://www.123mua.vn/myproduct/productcreate"><img
+	src="http://static.123mua.vn/c/images/button_posting.jpg"
+	alt="Đăng bán" width="95" height="23" /></a>
+<div id="notify_box" class="jewel jewelNew"><a
+	class="jewelToggler" rel="nofollow" href="/messagebox/inbox"> <!-- Msg Unread -->
+</a></div>
+</div>
+</div>
+</div>
+<!--end nav-->
+
+<div id="wrapper"><!--End header-->
+<form action="" method="post" id="frm_checkout">
+<div id="content">
+<h2 class="title_order">Đặt mua sản phẩm</h2>
+<div class="box_order boxRadius wid950">
+<div class="box_order_inside">
+<div class="leftBox_order">
+<h3>Thông tin người mua</h3>
+<ul id="warning-box" class="warning" style="display: none">
+	<li class="first">Bạn vui lòng kiểm tra lại thông tin bên dưới</li>
+</ul>
+<div class="group_listing_input">
+<div class="listing_input">
+<div class="post_label_container"><label class="postLabel">Họ
+và tên</label></div>
+<input id="buyer_name" class="k1_text_input" name="buyer_name"
+	type="text" /></div>
+<div class="listing_input">
+<div class="post_label_container"><label class="postLabel">Điện
+thoại</label></div>
+<input id="buyer_phone" class="k2_text_input" name="buyer_phone"
+	type="text" /></div>
+<div class="listing_input">
+<div class="post_label_container"><label class="postLabel">Địa
+chỉ</label></div>
+<input id="buyer_address" class="k1_text_input" name="buyer_address" />
+</div>
+<div class="listing_input">
+<div class="post_label_container"><label class="postLabel">Quận
+huyện</label></div>
+<input type="text" name="buyer_district" class="k2_text_input required" />
+</div>
+<div class="listing_input">
+<div class="post_label_container"><label class="postLabel">Thành
+phố</label></div>
+<select id="city_id" class="k3_text_input required" name="city_id">
+	<option value="">Thành phố</option>
+	<option value="29">TP. Hồ Chí Minh</option>
+	<option value="22">Hà Nội</option>
+	<option value="14">Cần Thơ</option>
+	<option value="15">Đà Nẵng</option>
+	<option value="65">Hậu Giang</option>
+	<option value="48">Quảng Ninh</option>
+	<option value="47">Quảng Ngãi</option>
+	<option value="46">Quảng Nam</option>
+	<option value="45">Quảng Bình</option>
+	<option value="44">Phú Yên</option>
+	<option value="43">Phú Thọ</option>
+	<option value="42">Ninh Thuận</option>
+	<option value="41">Ninh Bình</option>
+	<option value="40">Nghệ An</option>
+	<option value="39">Nam Định</option>
+	<option value="38">Long An</option>
+	<option value="37">Lâm Đồng</option>
+	<option value="49">Quảng Trị</option>
+	<option value="50">Sơn La</option>
+	<option value="64">Điện Biên</option>
+	<option value="63">Đắc Nông</option>
+	<option value="62">Yên Bái</option>
+	<option value="61">Vĩnh Phúc</option>
+	<option value="60">Vĩnh Long</option>
+	<option value="59">Tuyên Quang</option>
+	<option value="58">Trà Vinh</option>
+	<option value="57">Tiền Giang</option>
+	<option value="56">Thừa Thiên Huế</option>
+	<option value="55">Thanh Hóa</option>
+	<option value="54">Thái Nguyên</option>
+	<option value="53">Thái Bình</option>
+	<option value="52">Tây Ninh</option>
+	<option value="51">Sóc Trăng</option>
+	<option value="36">Lào Cai</option>
+	<option value="35">Lạng Sơn</option>
+	<option value="16">Đắc Lắc</option>
+	<option value="13">Cao Bằng</option>
+	<option value="12">Cà Mau</option>
+	<option value="11">Bình Thuận</option>
+	<option value="10">Bình Phước</option>
+	<option value="9">Bình Định</option>
+	<option value="8">Bình Dương</option>
+	<option value="7">Bến Tre</option>
+	<option value="6">Bắc Ninh</option>
+	<option value="5">Bắc Giang</option>
+	<option value="4">Bắc Cạn</option>
+	<option value="3">Bà Rịa - Vũng Tàu</option>
+	<option value="2">Bạc Liêu</option>
+	<option value="17">Đồng Nai</option>
+	<option value="19">Đồng Tháp</option>
+	<option value="34">Lai Châu</option>
+	<option value="33">Kon Tum</option>
+	<option value="32">Kiên Giang</option>
+	<option value="31">Khánh Hòa</option>
+	<option value="30">Hưng Yên</option>
+	<option value="28">Hòa Bình</option>
+	<option value="27">Hải Phòng</option>
+	<option value="26">Hải Dương</option>
+	<option value="25">Hà Tĩnh</option>
+	<option value="24">Hà Tây</option>
+	<option value="23">Hà Nam</option>
+	<option value="21">Hà Giang</option>
+	<option value="20">Gia Lai</option>
+	<option value="1">An Giang</option>
+</select></div>
+<div class="listing_input">
+<div class="post_label_container"><label class="postLabel">Email</label>
+</div>
+<input type="text" name="buyer_email" class="k1_text_input" /></div>
+<div class="listing_input">
+<div class="post_label_container"><label class="postLabel">Thông
+tin thêm <i>(nếu bạn cần hỏi hoặc ghi chú thêm cho chủ shop, nội
+dung không quá 255 ký tự)</i></label></div>
+<textarea id="buyer_message" class="k4_text_input" name="buyer_message"
+	cols="" rows=""></textarea></div>
+<a class="btn_order clear" id="btn_order" href="#">Đặt mua</a></div>
+</div>
+<div class="rightBox_order">
+<h3>Hóa đơn mua hàng</h3>
+<p class="bill_info"><span class="label">Đơn giá</span><span
+	class="price">340.000 VNĐ</span></p>
+<p class="bill_info"><span class="label">Số lượng</span><input
+	class="stock product_quantity" name="quantity" rel="340000" type="text"
+	value="1" /></p>
+<p class="bill_info total_money"><span class="label">Tổng</span><span
+	class="price total_price">340.000 VNĐ</span></p>
+<p class="bill_info"><span class="label">Giảm giá</span><span
+	class="discountCode">[Nhập mã giảm giá]</span></p>
+<p class="bill_info"><span class="label">Dịch vụ</span> <span
+	class="price" id="service_fee">0 VNĐ</span></p>
+<p class="bill_info optService"><span><label><input
+	name="payment_type" type="radio" value="0" checked disabled="disabled" />Không
+chọn</label></span> <!--<span><input name="payment_type" type="radio" value="1" disabled="disabled"/>Thu hộ</span>-->
+<span><label><input name="payment_type" type="radio"
+	value="2" disabled="disabled" />Thu hộ và chuyển phát</label></span></p>
+<p class="total_order"><span class="label">Thành tiền</span><span
+	class="price total_price">340.000 VNĐ</span></p>
+</div>
+<div class="clear"></div>
+<input type="hidden" name="product_price" id="product_price"
+	value="340000" /></div>
+</div>
+<div class="sum_detail">
+<h4>Chi tiết sản phẩm đặt mua</h4>
+<div class="pic"><a class="thumb" href="#"><img
+	src="http://t.f10.photo.zdn.vn/upload/original/2012/05/11/11/43/13367114061102950589_130_130.jpg"
+	alt="Túi đeo da NƠ cực style TDD61" height="110" /></a></div>
+<div class="desc">
+<h2><a href="#">TÚI ĐEO NƠ,COACH XINH XINH BẠN GÁI-hello247</a></h2>
+<span class="option"><span class="label">Tên sản phẩm</span>Túi
+đeo da NƠ cực style TDD61</span> <span class="option"><span
+	class="label">Tình trạng</span>Đã duyệt</span> <span class="option"><span
+	class="label">Cập nhật</span>11:52 trưa 11/05/2012</span> <span class="option"><span
+	class="label">Giá sản phẩm</span><strong class="price">340.000
+VNĐ</strong></span></div>
+<div class="clear"></div>
+</div>
+</div>
+</form>
+
+<script type="text/javascript">
+    $(function(){    	
+    	
+        $('.product_quantity').keyup(function(){
+            if (!$(this).val().length)
+            {
+                return;
+            }
+            var price = parseInt($(this).attr('rel'));
+            var val = parseInt($(this).val());
+
+
+            if (isNaN(val) || val <= 0)
+            {
+                val = 1;
+            }
+            
+            $(this).val(val);
+            var newPrice = number_format(val * price, 0, ',', '.');
+            $('.total_price', $(this).parent().parent()).text(newPrice + ' VNĐ');
+        }).blur(function(){
+            var val = parseInt($(this).val());
+            if (isNaN(val) || val <= 0)
+            {
+                val = 1;
+            }
+            $(this).val(val);
+        });
+
+        var updatePrice = function() {
+        	var service_id = $("input[name='payment_type']:checked").val();
+    	   	var product_price = parseInt($('#product_price').val());        	   	
+    	   	var service_fee = 0;    
+    	   	    	   	
+			if( service_id == 2 )
+			{					
+				service_fee = 15000;
+				product_price = product_price + service_fee; 					   	   	
+			}				
+			
+			$('.total_price').text(number_format(product_price) + ' VNĐ');
+			$('#service_fee').text(number_format(service_fee) + ' VNĐ'); 
+        }
+        $("input[name='payment_type']").change(function(){
+        	updatePrice();
+        });
+        
+        updatePrice();
+        
+        $("#btn_order").click(function(){
+            $("#frm_checkout").submit();
+        });
+
+        $("#frm_checkout").validate({
+            rules: {
+                buyer_name: {
+                    required: true,
+                    maxlength: 50
+                },
+                buyer_address: "required",
+                buyer_phone: "required",
+                buyer_message: "required",
+                buyer_email: {
+                	required: true,
+                	email: true
+                }
+            },
+        messages: {
+            buyer_name: "",
+            buyer_address: "",
+            buyer_phone: "",
+            city_id: "",
+            buyer_message : "",
+            buyer_email : ""
+        },
+    errorLabelContainer: "#warning-box",
+    wrapper: "li",
+
+    submitHandler: function(form) {
+        form.submit();
+    }
+});
+});
+</script> <!--End content-->
+<div id="ad_zone_footer_b1" style="width: 960px"></div>
+<div id="footer">
+<div id="bottom_menu">
+<ul class="bottom_menu_inside">
+	<li class="add_homepage"><a rel="nofollow"
+		onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.123mua.vn');">Đặt
+	123Mua.vn làm trang chủ</a></li>
+	<li><a href="http://www.123mua.vn/information/index">Giới
+	thiệu 123Mua.vn</a></li>
+	<!-- <li><a href="/information/partner">Đối tác</a></li> -->
+	<li><a rel="nofollow" target="_blank"
+		href="http://www.zing.vn/zing/Chinh-sach-Quyen-SHTT.zip">Chính
+	sách quyền SHTT</a></li>
+	<li><a rel="nofollow" target="_blank"
+		href="http://static.123mua.vn/content/QuyCheHoatDong.PDF">Quy chế
+	hoạt động</a></li>
+	<li><a href="http://www.123mua.vn/information/sitemap">Sitemap</a></li>
+	<li><a href="http://www.123mua.vn/information/contact">Liên hệ</a></li>
+</ul>
+<span class="end_bottom_menu">&nbsp;</span></div>
+<div class="legal" style="float: left">
+<p>Đơn vị chủ quản: VNG Corporation</p>
+<p>Giấy phép ICP số: 123/GP-BC</p>
+<p>Địa chỉ: Lầu 3, 182 Lê Đại Hành, Quận 11, Tp.HCM</p>
+<p>Email: <a rel="nofollow" href="mailto:123mua@zing.vn">123mua@zing.vn</a>
+- ĐT: (84.8) 3962 3888 (ext:1378 hoặc 1119 hoặc 1167)</p>
+</div>
+<div style="float: right"><a
+	href="http://dangkywebsite.gov.vn/vn/websites/71/index.html"
+	target="_blank"><img alt="" title=""
+	src="http://dangkywebsite.gov.vn/seals/Y2GYH8uW+w1wh5gGqVt9pA==.jpgx" /></a>
+</div>
+</div>
+<!--end footer--> <!--End footer--></div>
+<script
+	src="http://static.123mua.vn/c/js/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29847317-1']);
+  _gaq.push(['_setDomainName', '123mua.vn']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ad.zing.vn/trueclick/www/delivery/ajs.php':'http://ad.zing.vn/trueclick/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=580");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script>
+<noscript><a
+	href='http://ad.zing.vn/trueclick/www/delivery/ck.php?n=a2b7890a&amp;cb=INSERT_RANDOM_NUMBER_HERE'
+	target='_blank'><img
+	src='http://ad.zing.vn/trueclick/www/delivery/avw.php?zoneid=1297&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a2b7890a'
+	border='0' alt='' /></a></noscript>
+
+</body>
+</html>

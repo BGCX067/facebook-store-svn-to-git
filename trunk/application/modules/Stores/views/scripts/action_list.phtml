@@ -1,0 +1,17 @@
+<?php
+    $action_list = !empty ($this->action_list)?$this->action_list:null;
+?>
+<div class="action_control">
+    <?php if(!empty ($action_list)):?>
+    <span><?php echo HTS_Util::translate('LABEL_ACTION')?></span>
+    <div class="action_list">
+        <ul>
+            <?php foreach ($action_list as $action):?>
+            <li><a href="<?php echo $action['url']?>"><?php echo $action['label']?></a></li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+    <?php else:?>
+    <span class="disabled"><?php echo HTS_Util::translate('LABEL_ATION')?></span>
+    <?php endif;?>
+</div>

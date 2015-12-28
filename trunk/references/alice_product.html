@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+        <title>Insert title here</title>
+        <link rel="stylesheet" type="text/css" href="css/alice_product.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+        <script type="text/javascript" src="js/alice_product.js"></script>
+        <script type="text/javascript" src="js/popup.min.js"></script>
+        <script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen" />
+        <script type="text/javascript">
+            $('#productMoreImagesList a').lightBox();
+        </script>
+        <style type="text/css">
+            /******popup gallery******/
+            #popup-gallery { width: 660px; padding: 10px; background: #fff; border: 5px solid #ccc; position:absolute; left: 0; top: -20000px; z-index: 9999; }
+            .gallery-content { width: 600px; position: relative; height: 550px; text-align: center; float:left; }
+            .gallery-content img { max-width: 550px; max-height:550px; margin: 0 auto; }
+            #popup-gallery .btn-close {
+                background: url(icons/close-button.png) no-repeat scroll 0 0 transparent;
+                display: block;
+                height: 29px;
+                overflow: hidden;
+                position: absolute;
+                right: -18px;
+                text-indent: -999em;
+                top: -18px;
+                width: 29px;
+            }
+            .thumb-content { width: 46px; position: relative; padding: 0; overflow: hidden; float:left; margin-right: 14px; }
+            .thumb-imgs { width: 46px; position: relative; overflow: hidden; height: 378px; }
+            .thumb-imgs ul { padding: 0; margin: 0; } 
+            .thumb-imgs li {margin: 4px 0; width: 44px; height: 44px; border: 1px solid #e6e6e6;}
+            .thumb-imgs li img { width: 44px; height: 44px; display: block; }
+            .thumb-imgs .current { border-color: #DE7B2A; }
+
+            .i-slideSmallPrev, .i-slideSmallNext { width: 10px; height: 20px; margin: 14px 0 0 10px;}
+            #magnifier { cursor: -moz-zoom-in; cursor: -webkit-zoom-in; }
+            #zmask { cursor: pointer; }
+
+            #popup-gallery.popup-gallery-large { width: 910px; }
+            .popup-gallery-large .gallery-content { width: 850px; height: 850px; overflow: hidden; }
+            .popup-gallery-large .gallery-content img { max-height: 850px; max-width: 850px; }
+        </style>
+    </head>
+    <body>
+        <div id="prdMedia" class="prd-media">
+            <div id="prdZoomExpanded" class="ui-dialog ui-dialogPrdZoom" style="display:none;">
+                <div class="container">
+                    <a href="#" id="dialogClose" class="icon i-dialogClose ui-dialogClose ui-inlineBlock"></a>
+                    <div id="prdZoomExpandedClose" class="prdZoomExpanded-icon"></div>
+                    <img id="prdZoomExpandedImage" class="" src="" width="850" height="850">
+                </div>
+            </div>
+
+            <div id="productZoom" style="background-image:url('http://static.lazada.vn/p/nokia-2635-0602-1-zoom.jpg');" data-zoom-image="http://static.lazada.vn/p/nokia-2635-0602-1-zoom.jpg"></div>
+
+            <div class="prd-imageBoxLayout">
+                <a class="prd-imageBox" id="prdZoomBox" style="cursor:default;">
+                    <span rel="foaf:depiction">
+                        <img class="prd-image" id="prdImage" onerror="catalog.onError($(this));" width="340" height="340" data-js-function="setPlaceholderOnError" data-placeholder="http://static.lazada.vn/images/core/placeholder/placeholder-big.jpg" title="Nokia C2-03 - 2.6" 2mp="" 2="" sim="" Đen"="" alt="Nokia C2-03 - 2.6" src="http://static.lazada.vn/p/nokia-2635-0602-1-product.jpg">
+                    </span>
+                    <div id="magnifier"></div>
+                </a>
+                <div id="discount_cart" style="width:60px; height:30px; background-image:url('/images/core/icons/flag-sale.png'); background-repeat:no-repeat; top:10px; right:10px; left:auto; position:absolute; font-size:1.3em; font-weight:bold; color:white; text-align:center; padding-top:18px;">
+                    -17%    </div>
+            </div>
+
+
+            <div class="prd-moreImages">
+                <h2 class="s-visuallyhidden">Xem thêm hình</h2>
+                <div id="productMoreImagesListWrapper">
+                    <ul id="productMoreImagesList" class="prd-moreImagesList ui-listItemBorder ui-listLight clearfix">
+                        <li class="lfloat" data-js-function="setImage" data-image-product="http://static.lazada.vn/p/nokia-2635-0602-1-product.jpg" data-image-big="http://static.lazada.vn/p/nokia-2635-0602-1-zoom.jpg">
+                            <a href="#"><img data-js-function="setPlaceholderOnError" data-placeholder="http://static.lazada.vn/images/core/placeholder/placeholder-small.jpg" id="gal0" onerror="catalog.onError($(this));" width="44" height="44" src="http://static.lazada.vn/p/nokia-2635-0602-1-gallery.jpg" alt="http://static.lazada.vn/p/nokia-2635-0602-1-product.jpg"></a>
+                        </li>
+                        <li class="lfloat" data-js-function="setImage" data-image-product="http://static.lazada.vn/p/nokia-2636-0602-2-product.jpg" data-image-big="http://static.lazada.vn/p/nokia-2636-0602-2-zoom.jpg">
+                            <a href="#"><img data-js-function="setPlaceholderOnError" data-placeholder="http://static.lazada.vn/images/core/placeholder/placeholder-small.jpg" id="gal1" onerror="catalog.onError($(this));" width="44" height="44" src="http://static.lazada.vn/p/nokia-2636-0602-2-gallery.jpg" alt="http://static.lazada.vn/p/nokia-2636-0602-2-product.jpg"></a>
+                        </li>
+                        <li class="lfloat" data-js-function="setImage" data-image-product="http://static.lazada.vn/p/nokia-2637-0602-3-product.jpg" data-image-big="http://static.lazada.vn/p/nokia-2637-0602-3-zoom.jpg">
+                            <a href="#"><img data-js-function="setPlaceholderOnError" data-placeholder="http://static.lazada.vn/images/core/placeholder/placeholder-small.jpg" id="gal2" onerror="catalog.onError($(this));" width="44" height="44" src="http://static.lazada.vn/p/nokia-2637-0602-3-gallery.jpg" alt="http://static.lazada.vn/p/nokia-2637-0602-3-product.jpg"></a>
+                        </li>
+                        <li class="lfloat" data-js-function="setImage" data-image-product="http://static.lazada.vn/p/nokia-2638-0602-4-product.jpg" data-image-big="http://static.lazada.vn/p/nokia-2638-0602-4-zoom.jpg">
+                            <a href="#"><img data-js-function="setPlaceholderOnError" data-placeholder="http://static.lazada.vn/images/core/placeholder/placeholder-small.jpg" id="gal3" onerror="catalog.onError($(this));" width="44" height="44" src="http://static.lazada.vn/p/nokia-2638-0602-4-gallery.jpg" alt="http://static.lazada.vn/p/nokia-2638-0602-4-product.jpg"></a>
+                        </li>
+                        <li class="lfloat" data-js-function="setImage" data-image-product="http://static.lazada.vn/p/nokia-2639-0602-5-product.jpg" data-image-big="http://static.lazada.vn/p/nokia-2639-0602-5-zoom.jpg">
+                            <a href="#"><img data-js-function="setPlaceholderOnError" data-placeholder="http://static.lazada.vn/images/core/placeholder/placeholder-small.jpg" id="gal4" onerror="catalog.onError($(this));" width="44" height="44" src="http://static.lazada.vn/p/nokia-2639-0602-5-gallery.jpg" alt="http://static.lazada.vn/p/nokia-2639-0602-5-product.jpg"></a>
+                        </li>
+                        <li class="lfloat" data-js-function="setImage" data-image-product="http://static.lazada.vn/p/nokia-2640-0602-6-product.jpg" data-image-big="http://static.lazada.vn/p/nokia-2640-0602-6-zoom.jpg">
+                            <a href="#"><img data-js-function="setPlaceholderOnError" data-placeholder="http://static.lazada.vn/images/core/placeholder/placeholder-small.jpg" id="gal5" onerror="catalog.onError($(this));" width="44" height="44" src="http://static.lazada.vn/p/nokia-2640-0602-6-gallery.jpg" alt="http://static.lazada.vn/p/nokia-2640-0602-6-product.jpg"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

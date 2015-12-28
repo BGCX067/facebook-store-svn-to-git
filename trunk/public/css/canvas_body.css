@@ -1,0 +1,292 @@
+.body_container, .footer{
+    width: 960px;
+    margin: 0 auto;
+}
+.body_container{
+    background-color: #FAFAFA;
+}
+.body_container .contents{
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.body_container .contents .left_col{
+    width: 224px;
+    float: left;
+    padding-right: 4px;
+}
+.body_container .contents .right_col{
+    width: 732px;
+    float: right;
+}
+.body_container .tab{
+    width: 940px;
+}
+.footer .count_views{
+    float: left;
+}
+.footer .powered_by{
+    float: right;
+    padding: 4px 0;
+    font-weight: bold;
+}
+
+/*CSS for Zend Form*/
+.form_store{
+    margin: 0 auto;
+    display: block;
+}
+.zend_form{
+    background-color: #FFFFFF;
+    padding-bottom: 20px;
+    margin: 0;
+    width: 732px;
+}
+fieldset{
+    border-bottom: 1px solid #C6D7E8;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+fieldset legend {
+    background: url("http://static.123mua.vn/c/images/v2/bg_title_box04.jpg") repeat-x;
+    width: 712px;
+    height: 28px;
+    padding: 0 10px;
+    color: #06C;
+    font-size: 13px;
+    text-transform: capitalize;
+    font-weight: bold;
+    line-height: 28px;
+    border-bottom: 1px solid #A7BED9;
+}
+dl{
+    display: inline-block;
+    margin-top: 10px;
+}
+dl > dt{
+    width: 140px;
+    padding: 7px 20px;
+    float: left;
+    text-align: left;
+}
+dl > dt#description-label, dl > dt#about_us-label, dl > dt#contact_info-label{
+    padding: 37px 20px;
+}
+dl > dt > label{
+    font-weight: bold;
+}
+dl > dd{
+    width: 552px;
+    float: left;
+}
+dd input[type="text"],
+dd input[type="file"],
+dd select
+{
+    width: 522px;
+    padding: 4px;
+}
+dd select#base_currency{
+    width: 120px;
+}
+dd textarea
+{
+    width: 522px;
+    height: 80px;
+    padding: 4px;
+}
+div.form_button{
+    display: inline-block;
+    margin-top: 10px;
+}
+dd input[type="submit"], dd button, div.form_button input[type="submit"], div.form_button button {
+    background: url("../img/bg_blue_dark.png") repeat;
+    border: 1px solid #FAFAFA;
+    padding: 4px 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    margin: 0;
+    cursor: pointer;
+}
+dd input[type="submit"]:hover{
+    border-color: #BDC7D8;
+}
+dl ul.errors{
+    margin-left: 180px;
+}
+dl ul.errors li{
+    line-height: 150%;
+    list-style-type: square;
+    margin-left: 15px;
+}
+
+/*Css for Table list*/
+.table_list{
+    width: 732px;
+    margin: 0px;
+}
+.table_list .head_label{
+    background: url("http://static.123mua.vn/c/images/v2/bg_title_box04.jpg") repeat-x #D2DEE5;
+    border-bottom: 1px solid #A7BED9;
+    width: 100%;
+    height: 28px;
+    display: inline-block;
+}
+.table_list .head_label > a{
+    height: 28px;
+    line-height: 100%;
+    display: block;
+    float: left;
+    text-decoration: none;
+}
+.table_list .head_label > a.has_sort:hover{
+    background-color: #BBE8FB;
+}
+.table_list .head_label > a span{
+    padding: 0 10px;
+    line-height: 28px;
+    color: #06C;
+    font-size: 13px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.table_list .article_list .article{
+    display: inline-block;
+    border-bottom: 1px solid #BBE8FB;
+    padding: 4px 0;
+    width: 732px;
+}
+.table_list .article_list .article:hover{
+    background-color: #EFEFEF;
+}
+.table_list .article_list .article > div{
+    line-height: 150%;
+    float: left;
+}
+.table_list .article_list .article > div a, .table_list .article_list .article > div p{
+    display: block;
+    padding: 0px 10px;
+}
+.table_list .article_list .article > div.action{
+    padding: 0 10px;
+}
+/*Css for store list*/
+.shop_list .head_label > a.head_name{
+    width: 244px;
+}
+.shop_list .head_label > a.head_contact_info{
+    width: 296px;
+}
+.shop_list .head_label > a.head_status{
+    width: 112px;
+}
+.shop_list .head_label > a.head_action{
+    width: 80px;
+}
+.shop_list .article_list .article > div.article_banner a.banner,
+.shop_list .article_list .article > div.article_banner a.name{
+    width: 224px;
+}
+.shop_list .article_list .article > div.article_banner a.banner img{
+    width: 224px;
+}
+.shop_list .article_list .article > div.contact_info p{
+    width: 282px;
+}
+.shop_list .article_list .article > div.status p{
+    width: 82px;
+}
+/*Css for categories list*/
+.categories_list .head_label > a.head_name{
+    width: 652px;
+}
+.categories_list .head_label > a.head_action{
+    width: 80px;
+}
+.categories_list .article_list .article > div.article_name{
+    width: 650px;
+    line-height: 28px;
+}
+.categories_list .article_list .article.sub > div.article_name{
+    width: 620px;
+    padding-left: 30px;
+}
+.categories_list .article_list .article > div.status p{
+    width: 82px;
+}
+
+/*Css for list action*/
+.action_control{
+    position: relative;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer;
+}
+.action_control:hover{
+    border: 1px solid #BBE8FB;
+}
+.action_control span{
+    display: block;
+    width: 48px;
+    line-height: 28px;
+    text-align: center;
+    padding-right: 12px;
+    background: url("../img/icon_arrow.gif") no-repeat 48px 10px #FFFFFF;
+}
+.action_control:hover span{
+    background-image: url("../img/icon_arrow_hover.gif");
+}
+.action_control .action_list{
+    position: absolute;
+    top: 28px;
+    right: -1px;
+    display: none;
+    background-color: #FFFFFF;
+    z-index: 1000;
+}
+.action_control:hover .action_list{
+    display: block;
+}
+.action_control .action_list ul, .action_control .action_list ul li, .action_control .action_list ul li a{
+    display: block;
+}
+.action_control .action_list ul{
+    border: 1px solid #BBE8FB;
+}
+.action_control .action_list ul li a{
+    text-decoration: none;
+    line-height: 24px;
+    width: 120px;
+    text-align: left;
+    padding-left: 18px;
+}
+.action_control .action_list ul li a:hover{
+    background-color: #3B5998;
+    color: #FFFFFF;
+}
+/*Css for form category*/
+.form_category{
+    width: 732px;
+}
+.form_category h4 {
+    display: block;
+    background: url("http://static.123mua.vn/c/images/v2/bg_title_box04.jpg") repeat-x;
+    height: 28px;
+    padding: 0 10px;
+    color: #06C;
+    font-size: 13px;
+    text-transform: capitalize;
+    font-weight: bold;
+    line-height: 28px;
+    border-bottom: 1px solid #A7BED9;
+}
+#btn_add_more{
+    margin-left: 180px;
+}
+dd.row_add_more{
+    margin-left: 180px;
+}
+dd.row_add_more input[type="text"]{
+    width: 435px;
+}

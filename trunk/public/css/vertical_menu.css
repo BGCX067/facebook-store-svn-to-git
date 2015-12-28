@@ -1,0 +1,17 @@
+h4,ul,ol,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.bodyMenu{float:left;overflow:hidden;padding-bottom: 10px;width:224px;}
+.bodyMenu h4{display: block;background: url("http://static.123mua.vn/c/images/v2/bg_title_box04.jpg") repeat-x;
+            height: 28px;padding: 0 10px;color: #06C;font-size: 13px;text-transform: capitalize;
+            font-weight: bold;line-height: 28px;border-bottom: 1px solid #A7BED9;}
+.bodyMenu ul{background-color:#FDFDFD;}
+.bodyMenu ul li{font-size:12px;padding:6px 24px 6px 30px;background:url("../img/icon_marked_grey.png") no-repeat 4px center;}
+.bodyMenu ul li.active{border-top:1px solid #d2dee5;margin:1px 0;border-bottom:1px solid #d2dee5;background:url("../img/icon_marked_green.png") no-repeat 4px center #f2f7fc;}
+/*.bodyMenu ul li img.imgWrap{float:left;margin-right:8px;}*/
+.bodyMenu ul li a.aWrap{display:inline-block;width:194px;color:#3B5998;cursor:pointer;text-decoration:none;}
+.bodyMenu ul li a.aWrap span{display:block; max-width: 176px;}
+.bodyMenu ul li.active a{color:#333;font-weight:bold;background:url("https://s-static.ak.fbcdn.net/rsrc.php/v2/yE/r/JQgQHls27pw.png") no-repeat right center;}
+.bodyMenu ul li a:hover{color:#333;background:url("https://s-static.ak.fbcdn.net/rsrc.php/v2/yE/r/JQgQHls27pw.png") no-repeat right center;}

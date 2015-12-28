@@ -1,0 +1,106 @@
+<!--Libraries YouNet Facebook-->
+<dt id="fanpages-label"><label id="select-fanpage"><?php echo $this->translate("FANPAGES"); ?></label>
+<span class="wrap_tooltip"> <a class="tooltip_note"
+	href="javascript:void(0);">[?]</a> <span class="content_tooltip"> <span
+	class="quote_tooltip">&nbsp;</span>
+<p class="comment" style="text-align: left"><?php echo $this->translate("SELECT_FANPAGES"); ?>
+</p>
+</span> </span></dt>
+<dd><?php if(!count($this->element->getMultiOptions())): ?>
+<div id="load_my_fanpage" style="clear: both; margin-bottom: 5px;"><span
+	class="btn_green"> <a name="reload" id="reload"
+	href="javascript:void(0);" title="Load My Fanpages">Load My Fanpages</a>
+</span></div>
+<?php endif; ?>
+<ul class="sm_listfan">
+<?php foreach($this->element->getMultiOptions() as $key => $value): ?>
+	<li><input name="<?php echo $this->element->getName() ?>[]"
+		value="<?php echo $key ?>" type="checkbox"
+		<?php if( $this->element->getAttrib('disable') ):?>
+		<?php if( in_array($key,$this->element->getAttrib('disable')) ):?>
+		disabled="disabled" <?php endif;?> <?php endif;?>
+		<?php if( $this->element->getValue() ):?>
+		<?php echo in_array($key,$this->element->getValue())?'checked="checked"':'' ?>
+		<?php endif;?> /> <?php echo trim($value); ?></li>
+		<?php endforeach; ?>
+</ul>
+</dd>
+<script>
+	$(document).ready(function(){
+		FB.getLoginStatus(function(response) {
+			showFanpages();
+		});
+		is_runned = false;
+		function loadFanPages()
+		{
+			FB.getLoginStatus(function(response) {
+				FB.login(
+				function(response) {
+					showFanpages();
+				}
+				, { scope : 'email, manage_pages' });
+			});
+		}
+		function showFanpages()
+		{
+			var reload = $("#reload").length;
+			if(reload>0){
+				FB.api('/me/accounts', function(response) {
+					var data = response.data;
+					var html ='';
+					for (id in response.data)
+					{
+						page = data[id];
+						html += "<li><input type='checkbox' name='fanpages[]' value='" + page.id + "'> " + page.name + "</li>";
+						$('#load_my_fanpage').remove();
+					}
+					if (html != '')
+					{
+						$('.sm_listfan').html(html);
+					}
+					if(is_runned && html=='')
+					{
+						/*create new fanpage is defined in initHead in module facebook*/
+						$('.sm_listfan').html('<li>No fanpage found - <a target="_parent" href="' + social_url_fanpage_create + '">Create a Page</a></li>');
+					}
+					//select fanpage by default on top url
+					 checkPageByDefault('<?php echo $this->id_page; ?>',$('input[value="<?php echo $this->id_page; ?>"]'))
+				});
+			}
+			$("input[name='fanpages[]']").each(function(){
+				markPageInstalled($(this).val(), $(this));
+			});
+		}
+		function markPageInstalled(id_page, item)
+		{
+			result = FB.api('/' + id_page, function(response) {
+				if (response.has_added_app)
+				{
+					var image = " <img width='16' title='Already installed' src='<?php echo $this->baseUrl('/media/skin/classic/image/apply-icon.gif') ?>'/>";
+					item.parent().append(image);
+				}
+			});
+		}
+		function checkPageByDefault(id_page, item)
+		{
+			result = FB.api('/' + id_page, function(response) {
+				if (response.has_added_app)
+				{
+					item.attr("checked","checked");
+				}
+			});
+		}
+		$('#reload').click(function(){
+			is_runned = true;
+			loadFanPages();
+			return false;
+		});
+		$("input[name='fanpages[]']").live('click',function(){
+			if(this.checked){
+				fanpage = $(this).val().split(':');
+				isPageInstalled(fanpage[0],this,$(this));
+				return false;
+			}
+		});
+	})
+</script>

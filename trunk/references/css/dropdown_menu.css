@@ -1,0 +1,69 @@
+body,ul,li, h2 {
+	margin: 0;
+	padding: 0;
+}
+body {
+	width: 100%;
+	font-size: 12px;
+	font-family: "lucida grande, tahoma", arial, verdana, sans-serif;
+}
+.hidden{
+    display: none;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+/* Begin .main-nav*/
+.main-nav {
+    clear: both;
+    height: 32px;
+    position: relative;
+    width: 800px;
+    margin: 10px auto;
+    padding: 5px 0;
+    background: url("../image/bg_menu_gray.jpg") repeat #FAFAFA;
+}
+.main-nav ul, .main-nav ul li{
+    display: block;
+}
+.main-nav ul li {
+    float: left;
+    line-height: 32px;
+    padding: 0 15px;
+}
+.main-nav li a {
+    color: #474747;
+}
+.nav-li-hover, .main-nav > ul > li:hover {
+    background-color: white;
+    border-left: 1px solid #dadada;
+    border-right: 1px solid #dadada;
+    padding: 0 14px !important;
+}
+.main-nav > ul > li:hover .submenu_multicol, .main-nav > ul > li:hover .submenu {
+    display: block;
+}
+/* Sub menu Single-column */
+.main-nav .submenu{background-color:#fff;border:1px solid #dbdbdb;position:absolute;padding:0;overflow:auto;max-width:200px;min-width:160px;z-index:100;padding:1px;_width:200px;line-height:29px;z-index: 1000000;}
+.main-nav .submenu li{display:block;float:none;font-weight:normal;line-height:16px;_height:1%;vertical-align:bottom;border-top:1px solid #e2e2e2;padding: 0}
+.main-nav .submenu li a{border-left:0 none;border-right:0 none;padding:5px 8px;display: block; font-weight: normal; text-shadow: none;}
+.main-nav .submenu li a:hover{background-color: #3b5998;padding:5px;color:#fff;font-weight:bold;}
+/* Sub menu multi-column */
+.main-nav .submenu_multicol{background-color:#fff;border:1px solid #dbdbdb;position:absolute;padding:0;overflow:auto;z-index:100;top: 37px;left: 0;z-index: 1000000;}
+.main-nav .submenu_singlecol {position: absolute; top: 32px;}
+
+.subcol{float:left;overflow:hidden;}
+.subcol h2{text-align:center;margin: 1px;padding:10px 0;font-size:12px;line-height:normal;color:#333;border-bottom:1px solid #ebebeb;background-color:#f5f5f5}
+
+.subcol ul{overflow:hidden;}
+.subcol ul li{display:block;float:none;line-height:29px;padding:1px;}
+.subcol ul li a{font-weight:normal;display: block;width:115px; padding: 0 8px; text-shadow: none;}
+.subcol ul li a:hover{font-weight:bold;color:#fff;background-color: #3b5998;border:0 none;text-decoration: none;}
+
+.subcol .subinner_item{}
+.subcol .subinner_item ul{white-space:nowrap;}
+.subcol .subinner_item li{float:left;display:inline;padding:1px;overflow:hidden;}
+.subcol .subinner_item li a{float:left;display:inline;border:none 0;}

@@ -1,0 +1,43 @@
+.main_menu {
+    margin-bottom: 10px;
+}
+.main_menu .tab {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    height: 30px;
+    background-color: #fafafa;
+}
+.main_menu .tab ul {
+	display: block;
+}
+.main_menu .tab ul li {
+    margin-right: 1px;
+    padding: 0;
+    display: block;
+    float: left;
+    position: relative;
+    top: 1px;
+}
+.main_menu .tab ul li.active{
+    border-radius: 7px 7px 0 0;
+    top: -8px;
+}
+.main_menu .tab ul li a{
+    background-color: #EEE;
+    color: #3B5998;
+    padding: 7px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+.main_menu .tab ul li.active a,
+.main_menu .tab ul li:hover a{
+    background-color: #627AAD;
+	color: #FFFFFF;
+}
+.main_menu .tab ul li.active a{
+    border-radius: 7px 7px 0 0;
+    padding-top: 16px;
+}
